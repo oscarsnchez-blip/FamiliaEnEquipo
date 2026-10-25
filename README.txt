@@ -1,4 +1,5 @@
-FAMILIAENEQUIPO 1.0.6
-Sube todos los archivos del ZIP salvo config.js, manifest.webmanifest e iconos, que se conservan.
-Correcciones: popups operativos, Menú funcional, encabezados sin texto superior, botones + compactos, Inicio compacto y Calendario compacto.
-Si Menú indica que faltan tablas, ejecuta schema-menu.sql de la v1.0.4 una sola vez.
+FAMILIAENEQUIPO 1.0.7
+1. Ejecuta schema-v107.sql en Supabase SQL Editor.
+2. Sube todos los .js, index.html, styles.css y sw.js.
+3. Conserva config.js, manifest.webmanifest e iconos.
+Cambios: popups aislados por página, popup profesional con iconos, efecto pulsación, Menú con Primero/Segundo/Cena, avisos de eventos, eventos del mes en Inicio, notas reordenables y scroll lateral.
