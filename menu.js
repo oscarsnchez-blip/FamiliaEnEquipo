@@ -1,0 +1,1 @@
+FE.register('menu',{render(){return `<div class="page-head"><div><span class="eyebrow">Planificación semanal</span><h1>Menú</h1><p>Comidas y cenas de la familia.</p></div></div><div class="empty-state">La gestión semanal de platos permanece disponible en la v1.0.4. En esta reestructuración modular se conectará al nuevo componente en la siguiente iteración.</div>`},bind(){}});
