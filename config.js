@@ -1,4 +1,4 @@
 window.FE_CONFIG = {
-  supabaseUrl: "PEGA_AQUI_LA_PROJECT_URL",
-  supabaseAnonKey: "PEGA_AQUI_LA_PUBLISHABLE_KEY"
+  supabaseUrl: "https://zhghfipjvrpsumaojxtz.supabase.co",
+  supabaseAnonKey: "sb_publishable_8CjbApYEVJnLU3nwdxpoiQ_KjtJM4B8"
 };
