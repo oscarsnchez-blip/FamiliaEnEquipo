@@ -1,6 +1,6 @@
 {
   "name":"FamiliaEnEquipo",
-  "short_name":"EnEquipo",
+  "short_name":"FamiliaEnEquipo",
   "description":"Organización familiar compartida para distintos hogares",
   "start_url":"./",
   "scope":"./",
