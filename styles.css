@@ -81,3 +81,13 @@ html[data-theme=claro]{--p:#8d69b8;--p2:#b99bdd;--a:#df8fb2;--bg:#fbf7ff;--s:#ff
 .app>nav{grid-template-columns:repeat(var(--nav-count,8),minmax(0,1fr))!important;overflow:hidden!important}.app>nav button{min-width:0!important;padding-left:2px!important;padding-right:2px!important}.app>nav button span{font-size:15px!important}.app>nav button b{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:7px!important}
 .chat-heading-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px}.chat-heading-row>.page-head{min-width:0}.chat-notify-button{display:flex;align-items:center;gap:5px;margin:0;padding:7px 9px;border:1px solid var(--l);border-radius:11px;background:var(--s);color:var(--p);font-size:8px;font-weight:850;white-space:nowrap}.chat-shell{height:calc(100dvh - 190px)!important;min-height:0!important;display:grid!important;grid-template-rows:minmax(0,1fr) auto!important;overflow:hidden}.chat-list{min-height:0;overflow-y:auto;padding:5px 3px}.chat-compose{position:relative;z-index:2;margin:0;padding:6px}.chat-compose input{font-size:12px}.chat-compose button{width:38px;height:38px}
 @media(max-width:430px){.chat-heading-row{gap:5px}.chat-notify-button span{display:none}.chat-notify-button{width:34px;height:34px;padding:0;justify-content:center}.chat-shell{height:calc(100dvh - 174px)!important}.app>nav button span{font-size:14px!important}.app>nav button b{font-size:6px!important}}
+
+/* v1.1.62: menu inferior legible y estado de Chat en una linea */
+.app>nav{grid-template-columns:repeat(var(--nav-count,8),minmax(0,1fr))!important;overflow:hidden!important}
+.app>nav button{min-width:0!important;padding:5px 1px!important;gap:2px!important}
+.app>nav button i{font-size:14px!important;line-height:1!important}
+.app>nav button span{display:block!important;max-width:100%!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;font-size:7px!important;line-height:1.1!important;font-weight:650!important}
+.app>nav button.active span{font-size:7px!important;font-weight:900!important}
+.chat-home-body{grid-template-columns:minmax(0,1fr) 16px!important;min-height:46px!important}
+.chat-home-body>b{display:block!important;min-width:0!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;font-size:10px!important}
+@media(max-width:430px){.app>nav button i{font-size:13px!important}.app>nav button span,.app>nav button.active span{font-size:6px!important}.chat-home-body>b{font-size:9px!important}}
