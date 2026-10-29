@@ -1,0 +1,6 @@
+
+/* v1.1.55: acciones de eliminacion alineadas con la ficha */
+.setting-row-actions{display:grid;grid-template-columns:minmax(0,1fr) 42px;align-items:center;gap:6px;width:100%}
+.setting-row-actions>.user-setting-row{width:100%;min-width:0}
+.setting-row-actions>.icon-button.danger{display:grid;place-items:center;width:38px;height:38px;margin:0;border:1px solid color-mix(in srgb,#d84b5b 28%,transparent);border-radius:12px;background:color-mix(in srgb,#d84b5b 10%,transparent);color:#d84b5b;font-size:15px;line-height:1;cursor:pointer}
+.setting-row-actions>.icon-button.danger:active{transform:scale(.96)}
