@@ -67,3 +67,7 @@ html[data-theme=claro]{--p:#8d69b8;--p2:#b99bdd;--a:#df8fb2;--bg:#fbf7ff;--s:#ff
 /* v1.1.58: ajuste tipografico puntual en Gastos */
 .expense-period-title h2{font-size:14px!important}
 .expense-row h3,.expense-card h3,.expense-item h3,.entity-list .expense-title{font-size:14px!important}
+
+/* v1.1.59: jerarquia tipografica visible en Gastos */
+.expense-period-title h2{font-size:16px!important;line-height:1.15}
+.expense-row .entity-main>b{font-size:13px!important;line-height:1.2}
