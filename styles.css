@@ -333,10 +333,14 @@ body.help-overlay-open{overflow:hidden!important}
 .event-modal-actions{margin-top:4px!important;padding-top:16px!important;border-top:1px solid rgba(8,127,160,.15)!important;position:sticky;bottom:-1px;background:linear-gradient(180deg,rgba(255,255,255,.72),var(--s) 28%);z-index:2}
 .notification-test-button{font-weight:800}
 @media(max-width:520px){.event-form-section{padding:12px;border-radius:14px}.event-date-time-grid{grid-template-columns:1fr}.event-modal-actions{display:grid!important;grid-template-columns:1fr 1fr;gap:10px}.event-modal-actions button{width:100%;min-height:46px}}
-/* v1.2.42: avisos de evento visibles en movil */
+/* v1.2.44: avisos integrados en el formulario */
+.event-form-modern .event-reminders[open] .event-reminder-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding-top:10px}
+.event-form-modern .event-reminders[open] .event-reminder-options label{min-height:42px;padding:9px 10px;border:1px solid var(--b);border-radius:11px;background:var(--s)}
+.event-form-modern .event-reminders[open] [data-clear-reminders]{grid-column:1/-1}
 @media(max-width:520px){
-  .event-form-modern .event-reminders[open]{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:100400;max-height:min(72dvh,560px);overflow:auto;border:1px solid rgba(8,127,160,.28);border-radius:18px;background:var(--s);box-shadow:0 22px 64px rgba(9,34,52,.36);padding-bottom:8px}
-  .event-form-modern .event-reminders[open] summary{position:sticky;top:0;z-index:2;padding:14px 16px;background:#eaf6fa;border-bottom:1px solid rgba(8,127,160,.18);color:var(--p);font-weight:900}
-  .event-form-modern .event-reminders[open] .event-reminder-options{padding:14px;gap:9px}
-  .event-form-modern .event-reminders[open] .event-reminder-options label{min-height:44px;padding:10px 12px;border:1px solid var(--b);border-radius:12px;background:var(--s)}
+ .event-form-modern .event-reminders{scroll-margin:18px 0 110px}
+ .event-form-modern .event-reminders[open]{position:static!important;inset:auto!important;z-index:auto!important;max-height:none!important;overflow:visible!important;box-shadow:none!important;padding-bottom:0!important}
+ .event-form-modern .event-reminders[open] summary{position:static!important;padding:11px 12px;background:#eaf6fa;border-bottom:1px solid rgba(8,127,160,.18);border-radius:11px 11px 0 0;color:var(--p);font-weight:900}
+ .event-form-modern .event-reminders[open] .event-reminder-options{grid-template-columns:1fr;padding:10px;gap:8px}
+ .event-form-modern .event-reminders[open] .event-reminder-options label{min-height:44px}
 }
