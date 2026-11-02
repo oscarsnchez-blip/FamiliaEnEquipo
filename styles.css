@@ -201,5 +201,47 @@ html[data-theme=claro]{--p:#8d69b8;--p2:#b99bdd;--a:#df8fb2;--bg:#fbf7ff;--s:#ff
 /* v1.2.17 administracion simplificada */
 .admin-inline-help{margin:10px 0;padding:10px;border:1px solid var(--l);border-radius:11px;background:var(--s2);font-size:8px;line-height:1.45}.admin-inline-help[hidden]{display:none!important}.admin-inline-help>b{display:block;margin-bottom:5px;color:var(--p);font-size:10px}.admin-inline-help p{margin:4px 0;color:var(--m)}.admin-inline-help strong{color:var(--t)}.settings-list .user-setting-row[data-admin-help]{min-height:46px}.settings-list .user-setting-row[data-admin-help] .setting-symbol{width:30px;height:30px}.settings-list .user-setting-row[data-admin-help] b{font-size:9px}.settings-list .user-setting-row[data-admin-help] small{font-size:7px}
 
-/* v1.2.22 prepublicacion legal */
-.legal-prepublish,.legal-release-status{margin:0 0 12px;padding:10px 11px;border:1px solid #efc46f;border-radius:12px;background:#fff8e8;color:#694b0b}.legal-prepublish b,.legal-release-status b{display:block;font-size:10px}.legal-prepublish p,.legal-release-status span,.legal-release-status small{display:block;margin:3px 0 0;font-size:8px;line-height:1.4}.legal-release-status small{color:#765d2a}
+/* v1.2.24 ayuda ampliada y superpuesta */
+.app:has(.modal-backdrop.show)>.help-fab{visibility:visible!important;display:block!important;pointer-events:auto!important}.help-fab{z-index:220!important}.help-overlay{position:fixed;inset:0;z-index:320;display:grid;place-items:center;padding:14px;background:rgba(11,28,42,.68);backdrop-filter:blur(5px)}.help-overlay-panel{display:flex;flex-direction:column;width:min(560px,calc(100vw - 28px));max-height:min(820px,calc(100vh - 28px));overflow:hidden;border-radius:16px;background:var(--s);box-shadow:0 20px 60px rgba(0,0,0,.35)}.help-overlay-panel .modal-head{flex:0 0 auto}.help-overlay-content{overflow:auto;padding:0 14px 16px}.help-overlay .help-list{display:grid;gap:7px}.help-overlay .help-item p{white-space:normal;overflow-wrap:anywhere}@media(max-width:430px){.help-overlay{padding:8px}.help-overlay-panel{width:calc(100vw - 16px);max-height:calc(100vh - 16px)}}
+
+/* v1.2.25: foto de perfil, acciones siempre a la derecha y en vertical */
+.config-profile-photo{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:10px!important;
+}
+.config-profile-photo-actions{
+  display:flex!important;
+  flex-direction:column!important;
+  flex-wrap:nowrap!important;
+  align-items:stretch!important;
+  justify-content:center!important;
+  gap:5px!important;
+  margin:0!important;
+  padding:0!important;
+}
+.config-profile-photo-actions button{
+  width:auto!important;
+  min-width:94px!important;
+  min-height:30px!important;
+  flex:0 0 auto!important;
+  padding:5px 8px!important;
+  white-space:nowrap!important;
+}
+@media(max-width:520px){
+  .config-profile-photo{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:center!important;
+  }
+  .config-profile-photo-actions{
+    padding:0!important;
+    margin:0!important;
+    justify-content:center!important;
+  }
+  .config-profile-photo-actions button{
+    min-width:82px!important;
+    padding:5px 6px!important;
+    font-size:8px!important;
+  }
+}
