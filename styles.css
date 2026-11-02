@@ -382,3 +382,45 @@ body.help-overlay-open{overflow:hidden!important}
 #feModal .event-actions button{min-width:104px!important;min-height:40px!important}
 #feModal .event-time-stepper,#feModal .event-time-dropdown{display:none!important}
 @media(max-width:520px){#feModal .event-compact-form{gap:10px!important}#feModal .event-date-time-row{grid-template-columns:minmax(128px,1fr) 94px!important;gap:7px!important}#feModal .event-time-entry{width:94px!important}#feModal .event-all-day{grid-column:1/-1!important;justify-self:end!important;margin:0!important}#feModal .event-reminder-options{grid-template-columns:1fr 1fr!important}#feModal .event-actions{position:sticky!important;bottom:-1px!important;background:linear-gradient(180deg,transparent,var(--s) 28%)!important}#feModal .event-actions button{flex:1!important;min-width:0!important}}
+/* v1.2.52: editor de eventos equilibrado con hora/minutos estrechos */
+#feModal .event-compact-form{display:grid!important;grid-template-columns:1fr!important;gap:11px!important;padding:0!important;margin:0!important}
+#feModal .event-title-row{display:grid!important;grid-template-columns:72px minmax(0,1fr)!important;align-items:center!important;gap:10px!important}
+#feModal .event-title-row>span{margin:0!important}
+#feModal .event-title-row input{height:40px!important;min-height:40px!important;font-size:12px!important}
+#feModal .event-date-time-row{display:grid!important;grid-template-columns:178px 132px minmax(112px,auto)!important;align-items:end!important;justify-content:start!important;gap:12px!important;width:100%!important}
+#feModal .event-date-time-row>label:first-child{display:grid!important;gap:5px!important;width:178px!important;max-width:178px!important}
+#feModal .event-date-time-row input[type=date]{box-sizing:border-box!important;width:178px!important;min-width:178px!important;max-width:178px!important;height:40px!important;min-height:40px!important;padding:6px 8px!important;font-size:11px!important}
+#feModal .event-time-control{display:grid!important;gap:5px!important;width:132px!important;margin:0!important;padding:0!important}
+#feModal .event-time-pair{display:grid!important;grid-template-columns:56px 8px 56px!important;align-items:center!important;gap:6px!important;width:132px!important}
+#feModal .event-time-pair select{box-sizing:border-box!important;width:56px!important;min-width:56px!important;max-width:56px!important;height:40px!important;min-height:40px!important;padding:5px 3px!important;border:1px solid var(--b)!important;border-radius:10px!important;background:var(--s)!important;color:var(--t)!important;font-size:12px!important;font-weight:800!important;text-align:center!important;text-align-last:center!important}
+#feModal .event-time-pair>b{display:block!important;width:8px!important;text-align:center!important;font-size:13px!important}
+#feModal .event-all-day{display:flex!important;align-items:center!important;align-self:end!important;justify-self:start!important;gap:7px!important;margin:0 0 9px!important;padding:0!important;white-space:nowrap!important}
+#feModal .event-all-day span{margin:0!important;font-size:9px!important;font-weight:800!important}
+#feModal .event-reminders{margin-top:1px!important}
+#feModal .event-visibility-row{display:grid!important;grid-template-columns:72px minmax(150px,230px)!important;align-items:center!important;gap:10px!important}
+#feModal .event-visibility-row>span{margin:0!important}
+#feModal .event-visibility-row select{width:100%!important;min-width:0!important;max-width:230px!important}
+#feModal .event-actions{margin-top:6px!important;padding-top:13px!important}
+#feModal .event-time-entry,#feModal .event-time-stepper,#feModal .event-time-dropdown{display:none!important}
+@media(max-width:520px){
+ #feModal .event-compact-form{gap:10px!important}
+ #feModal .event-title-row{grid-template-columns:1fr!important;gap:5px!important}
+ #feModal .event-date-time-row{grid-template-columns:minmax(130px,1fr) 118px auto!important;gap:7px!important;align-items:end!important}
+ #feModal .event-date-time-row>label:first-child{width:100%!important;max-width:none!important}
+ #feModal .event-date-time-row input[type=date]{width:100%!important;min-width:0!important;max-width:none!important;height:38px!important;min-height:38px!important;padding:5px 7px!important;font-size:10px!important}
+ #feModal .event-time-control{width:118px!important}
+ #feModal .event-time-pair{grid-template-columns:49px 6px 49px!important;gap:7px!important;width:118px!important}
+ #feModal .event-time-pair select{width:49px!important;min-width:49px!important;max-width:49px!important;height:38px!important;min-height:38px!important;padding:4px 2px!important;font-size:11px!important}
+ #feModal .event-time-pair>b{width:6px!important}
+ #feModal .event-all-day{margin:0 0 8px!important;gap:5px!important}
+ #feModal .event-all-day span{font-size:8px!important}
+ #feModal .event-visibility-row{grid-template-columns:72px minmax(0,1fr)!important}
+ #feModal .event-visibility-row select{max-width:none!important}
+}
+@media(max-width:390px){
+ #feModal .event-date-time-row{grid-template-columns:minmax(118px,1fr) 108px!important}
+ #feModal .event-all-day{grid-column:1/-1!important;justify-self:end!important;margin:0!important}
+ #feModal .event-time-control{width:108px!important}
+ #feModal .event-time-pair{grid-template-columns:45px 6px 45px!important;gap:6px!important;width:108px!important}
+ #feModal .event-time-pair select{width:45px!important;min-width:45px!important;max-width:45px!important}
+}
