@@ -1,53 +1,21 @@
 (()=>{
 'use strict';
 const sorted=()=>[...FE.data.notes].sort((a,b)=>(a.sort_order??999)-(b.sort_order??999));
+const draftKey=n=>`fee-note-draft:${FE.session?.user?.id||'anon'}:${FE.profile?.family_id||'none'}:${n?.id||'new'}`;
+const readDraft=n=>{try{return JSON.parse(localStorage.getItem(draftKey(n))||'null')}catch{return null}};
+const writeDraft=(n,form)=>{let d={title:form.elements.title.value,body:form.elements.body.value,visibility:form.elements.visibility.value,saved_at:new Date().toISOString()};localStorage.setItem(draftKey(n),JSON.stringify(d));return d};
+const clearDraft=n=>localStorage.removeItem(draftKey(n));
 function edit(input={}){
- const id=typeof input==='string'?input:input?.id;const n=id?FE.data.notes.find(x=>x.id===id)||{}:input;
+ const id=typeof input==='string'?input:input?.id,n=id?FE.data.notes.find(x=>x.id===id)||{}:input,draft=readDraft(n),draftUseful=draft&&(draft.title!==String(n.title||'')||draft.body!==String(n.body||'')||draft.visibility!==(n.visibility||'family')),initial=draftUseful?{...n,...draft}:n;
  const attachment=n.attachment_name?`<div class="full-field compact-attachment note-attachment-compact"><span>📎 ${FE.esc(n.attachment_name)}</span><button type="button" data-open-file>Abrir</button></div>`:'';
- FEModal.open({
-  title:n.id?'Editar nota':'Nueva nota',
-  body:`<form class="form-grid">
-   <label>Título<input name="title" value="${FE.esc(n.title||'')}" required></label>
-   <label>Visibilidad<select name="visibility"><option value="family" ${n.visibility!=='private'?'selected':''}>Familiar</option><option value="private" ${n.visibility==='private'?'selected':''}>Solo para mí</option></select></label>
-   <label class="full-field">Contenido<textarea name="body" rows="5">${FE.esc(n.body||'')}</textarea></label>
-   ${(!n.id||n.owner_id===FE.session.user.id)?'<label class="full-field">Archivo o foto<input name="file" type="file" accept="image/*,.pdf,.doc,.docx,.xls,.xlsx"></label>':''}
-   ${attachment}
-   <div class="modal-actions"><button class="round-action save">✓</button><button type="button" class="round-action cancel" data-cancel>×</button></div>
-  </form>`,
-  onBind:m=>{
-   m.querySelector('[data-cancel]').onclick=FEModal.close;
-   m.querySelector('[data-open-file]')?.addEventListener('click',()=>FE.openAttachment(n.attachment_path));
-   m.querySelector('form').onsubmit=async e=>{
-    e.preventDefault();
-    const f=new FormData(e.target),file=f.get('file'),noteId=n.id||crypto.randomUUID();
-    const d={id:noteId,family_id:FE.profile.family_id,owner_id:n.owner_id||FE.session.user.id,title:f.get('title'),body:f.get('body'),visibility:f.get('visibility'),sort_order:n.sort_order??FE.data.notes.length,updated_at:new Date().toISOString()};
-    const q=n.id?await FE.db.from('notes').update(d).eq('id',n.id):await FE.db.from('notes').insert(d);
-    if(q.error)return FE.notice('No se pudo guardar',q.error.message);
-    if(file?.size){let att=await FE.upload(file,`notes/${noteId}`);if(att===false){FEModal.close();await FE.refresh();FE.render();return}let uq=await FE.db.from('notes').update({attachment_path:att.path,attachment_name:att.name,attachment_mime:att.mime}).eq('id',noteId);if(uq.error){await FE.db.storage.from('family-files').remove([att.path]);FEModal.close();await FE.refresh();FE.render();return FE.notice('Nota guardada','No se pudo vincular el adjunto: '+uq.error.message)}if(n.attachment_path&&n.attachment_path!==att.path)await FE.db.storage.from('family-files').remove([n.attachment_path])}
-    FEModal.close();await FE.refresh();FE.render();
-   };
-  }
- });
-}
-async function persist(box){
- const ids=[...box.querySelectorAll('.note-card')].map(x=>x.dataset.open);
- await Promise.all(ids.map((id,i)=>FE.db.from('notes').update({sort_order:i}).eq('id',id)));
- ids.forEach((id,i)=>{let n=FE.data.notes.find(x=>x.id===id);if(n)n.sort_order=i});
-}
-FE.register('notas',{
- render(){
-  const cards=sorted().map(n=>`<article class="entity-card note-card" data-open="${n.id}"><button class="drag-handle">⠿</button><span class="avatar fallback">${n.visibility==='private'?'🔒':n.attachment_path?'📎':'📝'}</span><div class="entity-main"><b>${FE.esc(n.title||'Sin título')}${n.attachment_path?'<span class="attachment-indicator" title="Tiene archivo adjunto" aria-label="Tiene archivo adjunto">📎</span>':''}</b><small>${n.visibility==='private'?'Privada · ':''}${FE.esc(n.body||'')}</small></div><button class="icon-delete" data-delete="${n.id}">🗑</button></article>`).join('');
-  return pageHead('Notas','Nueva nota')+`<div class="entity-list notes-sortable">${cards||empty('No hay notas.')}</div>`;
- },
- bind:r=>{
-  bindList(r,'notes',edit);
-  const box=r.querySelector('.notes-sortable');if(!box)return;
-  box.querySelectorAll('.drag-handle').forEach(h=>{
-   let state={card:null,ghost:null,timer:null,drag:false,pointer:null};
-   const move=e=>{if(e.pointerId!==state.pointer||!state.drag)return;e.preventDefault();state.ghost.style.left=(e.clientX-20)+'px';state.ghost.style.top=(e.clientY-25)+'px';state.ghost.hidden=true;const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.note-card');state.ghost.hidden=false;if(target&&target!==state.card){const z=target.getBoundingClientRect();box.insertBefore(state.card,e.clientY<z.top+z.height/2?target:target.nextSibling)}};
-   const end=async e=>{if(state.pointer!==null&&e.pointerId!==state.pointer)return;window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',end);window.removeEventListener('pointercancel',end);clearTimeout(state.timer);state.card?.classList.remove('drag-source');state.ghost?.remove();document.body.classList.remove('is-sorting');if(state.drag)await persist(box);state={card:null,ghost:null,timer:null,drag:false,pointer:null}};
-   h.onpointerdown=e=>{e.preventDefault();e.stopPropagation();state.card=h.closest('.note-card');state.pointer=e.pointerId;state.timer=setTimeout(()=>{state.drag=true;document.body.classList.add('is-sorting');state.card.classList.add('drag-source');state.ghost=state.card.cloneNode(true);state.ghost.className='note-ghost';state.ghost.style.width=state.card.getBoundingClientRect().width+'px';document.body.appendChild(state.ghost)},120);window.addEventListener('pointermove',move,{passive:false});window.addEventListener('pointerup',end);window.addEventListener('pointercancel',end)};
-  });
- }
-});
-})();
+ FEModal.open({title:n.id?'Editar nota':'Nueva nota',body:`<form class="form-grid note-editor-form">${draftUseful?'<div class="full-field note-draft-banner"><b>Borrador recuperado</b><small>Contenido restaurado desde este dispositivo.</small><button type="button" data-discard-draft>Descartar borrador</button></div>':''}<label>Título<input name="title" value="${FE.esc(initial.title||'')}" required></label><label>Visibilidad<select name="visibility"><option value="family" ${initial.visibility!=='private'?'selected':''}>Familiar</option><option value="private" ${initial.visibility==='private'?'selected':''}>Solo para mí</option></select></label><label class="full-field">Contenido<textarea name="body" rows="7">${FE.esc(initial.body||'')}</textarea></label>${(!n.id||n.owner_id===FE.session.user.id)?'<label class="full-field">Archivo o foto<input name="file" type="file" accept="image/*,.pdf,.doc,.docx,.xls,.xlsx"></label>':''}${attachment}<div class="full-field note-draft-state" data-draft-state>${draftUseful?'Borrador recuperado':'Guardado automático activado'}</div><div class="modal-actions"><button class="round-action save">✓</button><button type="button" class="round-action cancel" data-cancel>×</button></div></form>`,onBind:m=>{
+  const form=m.querySelector('form');let draftTimer=null;
+  const scheduleDraft=()=>{clearTimeout(draftTimer);draftTimer=setTimeout(()=>{writeDraft(n,form);m.querySelector('[data-draft-state]').textContent='Borrador guardado'},500)};
+  form.querySelectorAll('input[name=title],textarea[name=body],select[name=visibility]').forEach(x=>x.addEventListener('input',scheduleDraft));
+  m.querySelector('[data-cancel]').onclick=()=>{writeDraft(n,form);FEModal.setDirty(false);FEModal.close()};
+  m.querySelector('[data-discard-draft]')?.addEventListener('click',()=>{clearDraft(n);form.elements.title.value=n.title||'';form.elements.body.value=n.body||'';form.elements.visibility.value=n.visibility||'family';m.querySelector('.note-draft-banner')?.remove();m.querySelector('[data-draft-state]').textContent='Borrador descartado';FEModal.setDirty(false)});
+  m.querySelector('[data-open-file]')?.addEventListener('click',()=>FE.openAttachment(n.attachment_path));
+  form.onsubmit=async e=>{e.preventDefault();clearTimeout(draftTimer);writeDraft(n,form);const f=new FormData(form),file=f.get('file'),noteId=n.id||crypto.randomUUID(),d={id:noteId,family_id:FE.profile.family_id,owner_id:n.owner_id||FE.session.user.id,title:f.get('title'),body:f.get('body'),visibility:f.get('visibility'),sort_order:n.sort_order??FE.data.notes.length,updated_at:new Date().toISOString()},q=n.id?await FE.db.from('notes').update(d).eq('id',n.id):await FE.db.from('notes').insert(d);if(q.error)return FE.notice('No se pudo guardar',q.error.message);if(file?.size){let att=await FE.upload(file,`notes/${noteId}`);if(att===false){await FE.refresh();FE.render();return}let uq=await FE.db.from('notes').update({attachment_path:att.path,attachment_name:att.name,attachment_mime:att.mime}).eq('id',noteId);if(uq.error){await FE.db.storage.from('family-files').remove([att.path]);await FE.refresh();FE.render();return FE.notice('Nota guardada','No se pudo vincular el adjunto: '+uq.error.message)}if(n.attachment_path&&n.attachment_path!==att.path)await FE.db.storage.from('family-files').remove([n.attachment_path])}clearDraft(n);FEModal.setDirty(false);FEModal.close();await FE.refresh();FE.render()};
+ }})}
+async function persist(box){const ids=[...box.querySelectorAll('.note-card')].map(x=>x.dataset.open);await Promise.all(ids.map((id,i)=>FE.db.from('notes').update({sort_order:i}).eq('id',id)));ids.forEach((id,i)=>{let n=FE.data.notes.find(x=>x.id===id);if(n)n.sort_order=i})}
+FE.register('notas',{render(){const cards=sorted().map(n=>`<article class="entity-card note-card" data-open="${n.id}"><button class="drag-handle">⠿</button><span class="avatar fallback">${n.visibility==='private'?'🔒':n.attachment_path?'📎':'📝'}</span><div class="entity-main"><b>${FE.esc(n.title||'Sin título')}${n.attachment_path?'<span class="attachment-indicator" title="Tiene archivo adjunto" aria-label="Tiene archivo adjunto">📎</span>':''}</b><small>${n.visibility==='private'?'Privada · ':''}${FE.esc(n.body||'')}</small></div><button class="icon-delete" data-delete="${n.id}">🗑</button></article>`).join('');return pageHead('Notas','Nueva nota')+`<div class="entity-list notes-sortable">${cards||empty('No hay notas.')}</div>`},bind:r=>{bindList(r,'notes',edit);const box=r.querySelector('.notes-sortable');if(!box)return;box.querySelectorAll('.drag-handle').forEach(h=>{let state={card:null,ghost:null,timer:null,drag:false,pointer:null};const move=e=>{if(e.pointerId!==state.pointer||!state.drag)return;e.preventDefault();state.ghost.style.left=(e.clientX-20)+'px';state.ghost.style.top=(e.clientY-25)+'px';state.ghost.hidden=true;const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.note-card');state.ghost.hidden=false;if(target&&target!==state.card){const z=target.getBoundingClientRect();box.insertBefore(state.card,e.clientY<z.top+z.height/2?target:target.nextSibling)}};const end=async e=>{if(state.pointer!==null&&e.pointerId!==state.pointer)return;window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',end);window.removeEventListener('pointercancel',end);clearTimeout(state.timer);state.card?.classList.remove('drag-source');state.ghost?.remove();document.body.classList.remove('is-sorting');if(state.drag)await persist(box);state={card:null,ghost:null,timer:null,drag:false,pointer:null}};h.onpointerdown=e=>{e.preventDefault();e.stopPropagation();state.card=h.closest('.note-card');state.pointer=e.pointerId;state.timer=setTimeout(()=>{state.drag=true;document.body.classList.add('is-sorting');state.card.classList.add('drag-source');state.ghost=state.card.cloneNode(true);state.ghost.className='note-ghost';state.ghost.style.width=state.card.getBoundingClientRect().width+'px';document.body.appendChild(state.ghost)},120);window.addEventListener('pointermove',move,{passive:false});window.addEventListener('pointerup',end);window.addEventListener('pointercancel',end)}})}})})();
