@@ -283,3 +283,23 @@ body.help-overlay-open{overflow:hidden!important}
 .help-overlay-panel .help-titlebar{padding:18px 18px 14px!important;min-height:56px!important;border-bottom:2px solid rgba(8,127,160,.18)!important;background:var(--s)!important}
 .help-overlay-panel .help-titlebar h2{display:block!important;margin:0!important;padding:0!important;line-height:1.25!important}
 .help-overlay-panel .help-titlebar+.help-overlay-content{padding-top:16px!important}
+
+
+/* v1.2.30: restaurar cabecera azul de Ayuda sin perder el espaciado */
+.help-overlay-panel>.help-titlebar{
+  padding:18px 18px 14px!important;
+  min-height:56px!important;
+  background:#eaf6fa!important;
+  border-bottom:1px solid #c9e3ec!important;
+  color:#087fa0!important;
+}
+.help-overlay-panel>.help-titlebar h2{color:#087fa0!important}
+.help-overlay-panel>.help-titlebar .icon-button{
+  background:rgba(255,255,255,.72)!important;
+  color:#17324f!important;
+}
+@media(prefers-color-scheme:dark){
+  .help-overlay-panel>.help-titlebar{background:#153846!important;border-bottom-color:#285567!important;color:#79d4eb!important}
+  .help-overlay-panel>.help-titlebar h2{color:#79d4eb!important}
+  .help-overlay-panel>.help-titlebar .icon-button{background:rgba(255,255,255,.10)!important;color:#eefbff!important}
+}
