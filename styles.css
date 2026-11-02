@@ -344,3 +344,13 @@ body.help-overlay-open{overflow:hidden!important}
  .event-form-modern .event-reminders[open] .event-reminder-options{grid-template-columns:1fr;padding:10px;gap:8px}
  .event-form-modern .event-reminders[open] .event-reminder-options label{min-height:44px}
 }
+/* v1.2.45: desplegable de avisos compacto */
+.event-form-modern .event-reminders[open] .event-reminder-options{gap:5px!important;padding:7px 8px 8px!important}
+.event-form-modern .event-reminders[open] .event-reminder-options label{min-height:34px!important;padding:5px 8px!important;border-radius:9px!important;gap:6px!important;font-size:9px!important;line-height:1.15!important}
+.event-form-modern .event-reminders[open] .event-reminder-options input{margin:0!important;transform:scale(.9)}
+.event-form-modern .event-reminders[open] [data-clear-reminders]{min-height:34px!important;margin-top:1px!important;padding:5px 8px!important}
+@media(max-width:520px){
+ .event-form-modern .event-reminders[open] summary{min-height:38px!important;padding:8px 10px!important}
+ .event-form-modern .event-reminders[open] .event-reminder-options{gap:5px!important;padding:7px!important}
+ .event-form-modern .event-reminders[open] .event-reminder-options label{min-height:36px!important;padding:6px 8px!important}
+}
