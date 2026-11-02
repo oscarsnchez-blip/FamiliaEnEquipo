@@ -278,3 +278,8 @@ body.help-overlay-open{overflow:hidden!important}
 .app-version-status{display:grid;gap:3px;margin:0 0 12px;padding:11px 12px;border:1px solid rgba(8,127,160,.22);border-radius:12px;background:rgba(8,127,160,.07)}
 .app-version-status b{font-size:9px}.app-version-status span{font-size:13px;font-weight:850;color:var(--p)}.app-version-status small{font-size:8px;line-height:1.4;color:var(--m)}
 .settings-list button:disabled{opacity:.65;pointer-events:none}
+
+/* v1.2.29: separacion visible de cabecera de ayuda */
+.help-overlay-panel .help-titlebar{padding:18px 18px 14px!important;min-height:56px!important;border-bottom:2px solid rgba(8,127,160,.18)!important;background:var(--s)!important}
+.help-overlay-panel .help-titlebar h2{display:block!important;margin:0!important;padding:0!important;line-height:1.25!important}
+.help-overlay-panel .help-titlebar+.help-overlay-content{padding-top:16px!important}
