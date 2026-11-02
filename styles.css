@@ -635,3 +635,15 @@ body.modal-open .app{overscroll-behavior:none!important}
  #feModal .event-all-day{flex-basis:78px!important;width:78px!important;min-width:78px!important;max-width:78px!important;gap:4px!important}
  #feModal .event-all-day span{font-size:8.5px!important}
 }
+/* v1.2.59: ajuste final Todo el día y números más legibles */
+#feModal .event-date-time-row input[type=date]{font-size:10.5px!important;font-weight:650!important;letter-spacing:-.1px!important}
+#feModal .event-mini-select>button{font-size:11px!important;font-weight:900!important}
+#feModal .event-time-pair>b{font-size:11px!important;font-weight:850!important}
+#feModal .event-all-day{gap:2px!important}
+#feModal .event-all-day i{margin-right:0!important}
+#feModal .event-all-day span{margin-left:0!important;font-size:9px!important;font-weight:850!important}
+@media(max-width:360px){
+ #feModal .event-date-time-row input[type=date]{font-size:9.8px!important}
+ #feModal .event-mini-select>button{font-size:10.5px!important}
+ #feModal .event-all-day span{font-size:8.5px!important}
+}
