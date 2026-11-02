@@ -474,3 +474,28 @@ body.help-overlay-open{overflow:hidden!important}
  #feModal .event-mini-select,#feModal .event-mini-select>button,#feModal .event-mini-menu{width:46px!important}
  #feModal .event-mini-select>button{min-width:46px!important}
 }
+/* v1.2.54: escala compacta del editor de eventos + desplegables propios en Horario */
+#feModal .event-compact-form{gap:8px!important}
+#feModal .event-title-row input{height:36px!important;min-height:36px!important;padding:6px 8px!important;font-size:11px!important}
+#feModal .event-date-time-row{grid-template-columns:150px 116px auto!important;gap:8px!important}
+#feModal .event-date-time-row>label:first-child,#feModal .event-date-time-row input[type=date]{width:150px!important;min-width:150px!important;max-width:150px!important}
+#feModal .event-date-time-row input[type=date]{height:36px!important;min-height:36px!important;padding:5px 7px!important;font-size:10px!important}
+#feModal .event-time-control{width:116px!important}
+#feModal .event-time-pair{grid-template-columns:49px 6px 49px!important;gap:6px!important;width:116px!important}
+#feModal .event-mini-select,#feModal .event-mini-select>button,#feModal .event-mini-menu{width:49px!important}
+#feModal .event-mini-select>button{min-width:49px!important;height:36px!important;font-size:10px!important}
+#feModal .event-mini-menu{top:40px!important;max-height:162px!important}
+#feModal .event-mini-menu button{height:25px!important;font-size:9px!important}
+#feModal .event-all-day{margin:0 0 7px!important}
+#feModal .event-all-day i{width:30px!important;height:18px!important}
+#feModal .event-all-day i:after{width:12px!important;height:12px!important}
+#feModal .event-all-day input:checked+i:after{transform:translateX(12px)!important}
+#feModal .event-reminders summary{min-height:35px!important;padding:6px 8px!important;font-size:9px!important}
+#feModal .event-reminder-options{gap:4px!important;padding:5px!important}
+#feModal .event-reminder-options label{min-height:29px!important;padding:3px 6px!important;font-size:7.5px!important}
+#feModal .event-reminder-options input{width:16px!important;height:16px!important}
+#feModal .event-reminder-options [data-clear-reminders]{min-height:31px!important;padding:4px 7px!important;font-size:9px!important}
+#feModal .event-visibility-row select{height:36px!important;min-height:36px!important;padding:5px 7px!important;font-size:10px!important}
+#feModal .event-actions button{min-height:36px!important;font-size:10px!important}
+.schedule-time-pairs{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important;align-items:start!important}.schedule-time-pairs>label{display:grid!important;gap:5px!important;font-size:9px!important;font-weight:850!important}.schedule-time-picker{display:grid!important;grid-template-columns:49px 6px 49px!important;align-items:center!important;gap:6px!important;width:116px!important}.schedule-time-picker>b{width:6px!important;text-align:center!important}.schedule-time-picker .event-mini-select,.schedule-time-picker .event-mini-select>button,.schedule-time-picker .event-mini-menu{width:49px!important}.schedule-time-picker .event-mini-select>button{min-width:49px!important;height:36px!important;padding:4px!important;font-size:10px!important}.schedule-time-picker .event-mini-menu{top:40px!important;max-height:162px!important}.schedule-time-picker .event-mini-menu button{height:25px!important;font-size:9px!important}
+@media(max-width:520px){#feModal .event-date-time-row{grid-template-columns:minmax(112px,1fr) 110px auto!important;gap:5px!important}#feModal .event-date-time-row>label:first-child,#feModal .event-date-time-row input[type=date]{width:100%!important;min-width:0!important;max-width:none!important}#feModal .event-time-control{width:110px!important}#feModal .event-time-pair{grid-template-columns:46px 6px 46px!important;gap:6px!important;width:110px!important}#feModal .event-time-pair .event-mini-select,#feModal .event-time-pair .event-mini-select>button,#feModal .event-time-pair .event-mini-menu{width:46px!important}#feModal .event-time-pair .event-mini-select>button{min-width:46px!important}.schedule-time-pairs{grid-template-columns:1fr 1fr!important;gap:8px!important}.schedule-time-picker{grid-template-columns:46px 6px 46px!important;width:110px!important}.schedule-time-picker .event-mini-select,.schedule-time-picker .event-mini-select>button,.schedule-time-picker .event-mini-menu{width:46px!important}.schedule-time-picker .event-mini-select>button{min-width:46px!important}}
