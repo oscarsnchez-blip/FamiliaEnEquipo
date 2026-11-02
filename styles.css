@@ -424,3 +424,53 @@ body.help-overlay-open{overflow:hidden!important}
  #feModal .event-time-pair{grid-template-columns:45px 6px 45px!important;gap:6px!important;width:108px!important}
  #feModal .event-time-pair select{width:45px!important;min-width:45px!important;max-width:45px!important}
 }
+/* v1.2.53: popup eventos definitivo con desplegables propios compactos */
+#feModal .pro-modal{width:min(620px,calc(100vw - 24px))!important}
+#feModal .modal-content{padding:16px 18px 18px!important}
+#feModal .event-compact-form{display:grid!important;grid-template-columns:1fr!important;gap:12px!important}
+#feModal .event-title-row{display:grid!important;grid-template-columns:68px minmax(0,1fr)!important;align-items:center!important;gap:10px!important}
+#feModal .event-title-row input{height:40px!important;min-height:40px!important}
+#feModal .event-date-time-row{display:grid!important;grid-template-columns:164px 132px minmax(116px,auto)!important;align-items:end!important;justify-content:start!important;gap:10px!important;width:100%!important}
+#feModal .event-date-time-row>label:first-child{width:164px!important;max-width:164px!important}
+#feModal .event-date-time-row input[type=date]{box-sizing:border-box!important;width:164px!important;min-width:164px!important;max-width:164px!important;height:40px!important;padding:6px 8px!important;font-size:11px!important}
+#feModal .event-time-control{position:relative!important;width:132px!important}
+#feModal .event-time-pair{display:grid!important;grid-template-columns:56px 8px 56px!important;align-items:center!important;gap:6px!important;width:132px!important}
+#feModal .event-mini-select{position:relative!important;width:56px!important}
+#feModal .event-mini-select>button{box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:4px!important;width:56px!important;min-width:56px!important;height:40px!important;padding:5px 4px!important;border:1px solid var(--b)!important;border-radius:10px!important;background:var(--s)!important;color:var(--t)!important;font-size:12px!important;font-weight:850!important}
+#feModal .event-mini-select>button i{font-size:10px!important;font-style:normal!important;color:var(--m)!important}
+#feModal .event-mini-select>button:focus,#feModal .event-mini-select>button[aria-expanded=true]{border-color:var(--p)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--p) 13%,transparent)!important}
+#feModal .event-time-pair>b{width:8px!important;text-align:center!important}
+#feModal .event-mini-menu{position:absolute!important;z-index:1000!important;top:44px!important;left:0!important;box-sizing:border-box!important;width:56px!important;max-height:188px!important;overflow-y:auto!important;padding:3px!important;border:1px solid var(--b)!important;border-radius:9px!important;background:var(--s)!important;box-shadow:0 12px 28px rgba(9,34,52,.22)!important;overscroll-behavior:contain!important}
+#feModal .event-mini-menu button{display:block!important;width:100%!important;min-width:0!important;height:28px!important;padding:2px!important;border:0!important;border-radius:6px!important;background:transparent!important;color:var(--t)!important;font-size:10px!important;text-align:center!important}
+#feModal .event-mini-menu button.selected,#feModal .event-mini-menu button:hover{background:var(--p)!important;color:#fff!important;font-weight:850!important}
+#feModal .event-all-day{display:flex!important;align-items:center!important;align-self:end!important;gap:6px!important;margin:0 0 9px!important;white-space:nowrap!important}
+#feModal .event-all-day span{font-size:8px!important;font-weight:850!important}
+#feModal .event-reminders{margin:0!important}
+#feModal .event-visibility-row{display:grid!important;grid-template-columns:68px minmax(150px,220px)!important;align-items:center!important;gap:10px!important}
+#feModal .event-visibility-row select{max-width:220px!important;height:40px!important}
+#feModal .event-time-pair select{display:none!important}
+@media(max-width:520px){
+ #feModal .pro-modal{width:calc(100vw - 18px)!important;max-width:none!important}
+ #feModal .modal-content{padding:13px 12px 15px!important}
+ #feModal .event-title-row{grid-template-columns:1fr!important;gap:5px!important}
+ #feModal .event-date-time-row{grid-template-columns:minmax(122px,1fr) 118px minmax(96px,auto)!important;gap:6px!important;align-items:end!important}
+ #feModal .event-date-time-row>label:first-child{width:100%!important;max-width:none!important}
+ #feModal .event-date-time-row input[type=date]{width:100%!important;min-width:0!important;max-width:none!important;height:38px!important;padding:5px 6px!important;font-size:10px!important}
+ #feModal .event-time-control{width:118px!important}
+ #feModal .event-time-pair{grid-template-columns:49px 6px 49px!important;gap:7px!important;width:118px!important}
+ #feModal .event-mini-select,#feModal .event-mini-select>button,#feModal .event-mini-menu{width:49px!important}
+ #feModal .event-mini-select>button{min-width:49px!important;height:38px!important;font-size:11px!important}
+ #feModal .event-mini-menu{top:42px!important;max-height:174px!important}
+ #feModal .event-all-day{margin:0 0 8px!important;gap:5px!important}
+ #feModal .event-all-day span{font-size:7.5px!important}
+ #feModal .event-visibility-row{grid-template-columns:68px minmax(0,1fr)!important}
+ #feModal .event-visibility-row select{max-width:none!important}
+}
+@media(max-width:390px){
+ #feModal .event-date-time-row{grid-template-columns:minmax(116px,1fr) 110px!important}
+ #feModal .event-all-day{grid-column:1/-1!important;justify-self:end!important;margin:0!important}
+ #feModal .event-time-control{width:110px!important}
+ #feModal .event-time-pair{grid-template-columns:46px 6px 46px!important;gap:6px!important;width:110px!important}
+ #feModal .event-mini-select,#feModal .event-mini-select>button,#feModal .event-mini-menu{width:46px!important}
+ #feModal .event-mini-select>button{min-width:46px!important}
+}
