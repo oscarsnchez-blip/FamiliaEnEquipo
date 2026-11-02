@@ -322,3 +322,14 @@ body.help-overlay-open{overflow:hidden!important}
 .modal-content>.modal-actions{border-top:1px solid color-mix(in srgb,var(--l) 78%,transparent)}
 /* v1.2.39: prueba local de notificaciones */
 .notification-test-button{width:100%;margin-top:4px;min-height:40px}
+/* v1.2.40: modal de eventos y notificacion de prueba */
+.event-form-modern{gap:14px}
+.event-form-section{display:grid;gap:10px;padding:14px;border:1px solid rgba(8,127,160,.16);border-radius:16px;background:linear-gradient(180deg,rgba(234,246,250,.72),rgba(255,255,255,.96));box-shadow:0 6px 18px rgba(24,55,78,.04)}
+.event-section-kicker{font-size:9px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--p)}
+.event-title-field input{min-height:48px;font-size:16px;font-weight:750}
+.event-date-time-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:12px;align-items:end}
+.event-form-modern .event-time-field,.event-form-modern .event-reminders{background:var(--s);border-color:rgba(8,127,160,.22)}
+.event-form-modern .event-reminders summary{min-height:44px;align-items:center}
+.event-modal-actions{margin-top:4px!important;padding-top:16px!important;border-top:1px solid rgba(8,127,160,.15)!important;position:sticky;bottom:-1px;background:linear-gradient(180deg,rgba(255,255,255,.72),var(--s) 28%);z-index:2}
+.notification-test-button{font-weight:800}
+@media(max-width:520px){.event-form-section{padding:12px;border-radius:14px}.event-date-time-grid{grid-template-columns:1fr}.event-modal-actions{display:grid!important;grid-template-columns:1fr 1fr;gap:10px}.event-modal-actions button{width:100%;min-height:46px}}
