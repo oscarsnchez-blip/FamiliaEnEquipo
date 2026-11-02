@@ -320,3 +320,5 @@ body.help-overlay-open{overflow:hidden!important}
 /* v1.2.38: separacion uniforme entre contenido y acciones en todos los popups */
 .modal-content>.modal-actions,.modal-content>form>.modal-actions,.modal-content>div>.modal-actions{margin-top:18px!important;padding-top:12px!important}
 .modal-content>.modal-actions{border-top:1px solid color-mix(in srgb,var(--l) 78%,transparent)}
+/* v1.2.39: prueba local de notificaciones */
+.notification-test-button{width:100%;margin-top:4px;min-height:40px}
