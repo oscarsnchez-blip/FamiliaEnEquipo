@@ -245,3 +245,14 @@ html[data-theme=claro]{--p:#8d69b8;--p2:#b99bdd;--a:#df8fb2;--bg:#fbf7ff;--s:#ff
     font-size:8px!important;
   }
 }
+
+
+/* v1.2.26: ayuda contextual de submenus y aviso legal */
+.legal-release-status{display:block!important;padding:11px 12px!important;line-height:1.45!important}
+.legal-release-status>b,.legal-release-status>span,.legal-release-status>small{display:block!important;margin:0!important}
+.legal-release-status>span{margin-top:3px!important}
+.legal-release-status>small{margin-top:4px!important}
+.help-context{display:flex!important;flex-direction:column!important;gap:3px!important}
+.help-context>b,.help-context>small{display:block!important;margin:0!important}
+.help-overlay-panel .modal-head h2{margin:0!important}
+.help-overlay-content{padding-top:10px!important}
