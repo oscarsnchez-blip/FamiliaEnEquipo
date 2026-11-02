@@ -354,3 +354,17 @@ body.help-overlay-open{overflow:hidden!important}
  .event-form-modern .event-reminders[open] .event-reminder-options{gap:5px!important;padding:7px!important}
  .event-form-modern .event-reminders[open] .event-reminder-options label{min-height:36px!important;padding:6px 8px!important}
 }
+/* v1.2.46: selectores horarios compactos y Push persistente */
+.event-form-modern .event-time-field{width:auto!important;min-width:0!important;justify-self:start!important}
+.event-form-modern .event-time-selects{display:grid!important;grid-template-columns:68px 10px 68px auto!important;align-items:center!important;gap:5px!important;width:max-content!important;max-width:100%!important}
+.event-form-modern .event-time-selects select{box-sizing:border-box!important;width:68px!important;min-width:68px!important;max-width:68px!important;height:36px!important;min-height:36px!important;padding:5px 7px!important;text-align:center!important}
+.event-form-modern .event-time-selects>b{width:10px!important;text-align:center!important}
+.event-form-modern .event-all-day{grid-column:auto!important;margin:0 0 0 6px!important;white-space:nowrap!important}
+.modal-content input[type="time"]{box-sizing:border-box!important;width:112px!important;min-width:112px!important;max-width:112px!important;height:38px!important;min-height:38px!important;padding:5px 8px!important;text-align:center!important}
+.notification-time-row select{width:82px!important;min-width:82px!important;max-width:82px!important;height:36px!important;padding:5px 6px!important;text-align:center!important}
+@media(max-width:520px){
+ .event-form-modern .event-time-selects{grid-template-columns:62px 8px 62px!important;width:142px!important;gap:5px!important}
+ .event-form-modern .event-time-selects select{width:62px!important;min-width:62px!important;max-width:62px!important;height:34px!important;min-height:34px!important;padding:4px!important}
+ .event-form-modern .event-all-day{grid-column:1/-1!important;margin:2px 0 0!important}
+ .modal-content input[type="time"]{width:108px!important;min-width:108px!important;max-width:108px!important}
+}
