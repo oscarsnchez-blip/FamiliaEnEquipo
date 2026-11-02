@@ -303,3 +303,9 @@ body.help-overlay-open{overflow:hidden!important}
   .help-overlay-panel>.help-titlebar h2{color:#79d4eb!important}
   .help-overlay-panel>.help-titlebar .icon-button{background:rgba(255,255,255,.10)!important;color:#eefbff!important}
 }
+
+
+/* v1.2.31: alineacion de cabecera y diagnostico tecnico */
+.help-overlay-panel>.help-titlebar{padding-left:26px!important;padding-right:12px!important}
+.app-tech-status{display:grid;grid-template-columns:1fr auto;gap:6px 12px;margin:0 0 12px;padding:11px 12px;border:1px solid rgba(23,50,79,.14);border-radius:12px;background:rgba(238,246,250,.72)}
+.app-tech-status b{font-size:8px}.app-tech-status span{font-size:8px;text-align:right}.app-tech-status .ok{color:#18794e;font-weight:800}.app-tech-status .review{color:#8a5a00;font-weight:800}
