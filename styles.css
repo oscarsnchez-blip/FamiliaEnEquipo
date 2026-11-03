@@ -747,3 +747,6 @@ body.modal-open .app{overscroll-behavior:none!important}
     font-size:11px!important;
   }
 }
+
+/* v1.2.68 gesto lateral capturado globalmente */
+#page.page-surface{touch-action:pan-y!important;overscroll-behavior-x:none!important}
