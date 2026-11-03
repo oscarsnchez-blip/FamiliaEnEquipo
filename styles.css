@@ -658,3 +658,48 @@ body.modal-open .app{overscroll-behavior:none!important}
 #feModal .event-all-day i{align-self:center!important;margin:0!important}
 #feModal .event-all-day span{align-self:center!important;margin:0!important;padding:0!important;line-height:1!important}
 @media(max-width:520px){#feModal .event-all-day{height:34px!important;min-height:34px!important;margin:0!important}}
+
+/* FamiliaEnEquipo v1.2.65 - acciones compactas de administración familiar */
+.admin-member-row{
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr);
+  align-items:center;
+  gap:10px 14px;
+}
+.admin-member-row>.admin-member-actions{
+  grid-column:2;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  margin-top:2px;
+}
+.admin-member-actions button{
+  width:auto!important;
+  min-width:0!important;
+  min-height:34px!important;
+  margin:0!important;
+  padding:7px 12px!important;
+  border-radius:999px!important;
+  font-size:13px!important;
+  font-weight:700!important;
+  line-height:1.15!important;
+  white-space:nowrap!important;
+  box-shadow:none!important;
+}
+.admin-member-actions .secondary{
+  color:var(--p)!important;
+  background:color-mix(in srgb,var(--p) 9%,var(--s))!important;
+  border:1px solid color-mix(in srgb,var(--p) 24%,var(--l))!important;
+}
+.admin-member-actions .danger{
+  color:#b43b59!important;
+  background:color-mix(in srgb,var(--a) 13%,var(--s))!important;
+  border:1px solid color-mix(in srgb,var(--a) 32%,var(--l))!important;
+}
+.admin-member-actions button:disabled{opacity:.55;cursor:wait}
+@media (max-width:430px){
+  .admin-member-row{grid-template-columns:36px minmax(0,1fr);gap:8px 10px}
+  .admin-member-row>.admin-member-actions{grid-column:2;gap:6px}
+  .admin-member-actions button{min-height:32px!important;padding:6px 10px!important;font-size:12px!important}
+}
