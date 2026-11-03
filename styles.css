@@ -750,3 +750,6 @@ body.modal-open .app{overscroll-behavior:none!important}
 
 /* v1.2.68 gesto lateral capturado globalmente */
 #page.page-surface{touch-action:pan-y!important;overscroll-behavior-x:none!important}
+
+/* v1.2.69 gesto lateral también sobre tarjetas y días de calendario */
+#page.page-surface{touch-action:pan-y!important;overscroll-behavior-x:none!important}
