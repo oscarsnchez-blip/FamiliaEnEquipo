@@ -892,3 +892,16 @@ body.modal-open .app{overscroll-behavior:none!important}
 .config-group>.settings-hub{display:grid;gap:6px;padding:0 8px 8px}
 .config-group .settings-hub-card{min-height:48px;margin:0;border-radius:11px;box-shadow:none}
 @media(max-width:430px){.day-panel>.entity-card .entity-main b{font-size:10.5px!important}.day-panel>.entity-card .entity-main small{font-size:8px!important}.config-accordion{gap:7px}.config-group>summary{min-height:52px;padding:7px 10px}.config-group>.settings-hub{padding:0 7px 7px}}
+/* v1.3.1: jerarquia visual de Configuracion */
+.config-group>summary{min-height:68px!important;padding:11px 14px!important;grid-template-columns:42px 1fr 28px!important;gap:11px!important}
+.config-group>summary>span{width:40px!important;height:40px!important;border-radius:12px!important;font-size:21px!important}
+.config-group>summary b{font-size:13px!important;line-height:1.2!important}
+.config-group>summary small{font-size:9px!important;line-height:1.25!important}
+.config-group>summary>i{font-size:14px!important;font-weight:800!important}
+.config-group>.settings-hub{gap:5px!important;padding:0 10px 10px!important}
+.config-group .settings-hub-card{min-height:44px!important;padding:6px 9px!important;border-radius:10px!important}
+.config-group .settings-hub-card>span{width:30px!important;height:30px!important;min-width:30px!important;border-radius:9px!important;font-size:15px!important}
+.config-group .settings-hub-card b{font-size:10px!important;line-height:1.15!important}
+.config-group .settings-hub-card small{font-size:7.5px!important;line-height:1.15!important}
+.config-group .settings-hub-card>i{font-size:12px!important}
+@media(max-width:430px){.config-group>summary{min-height:64px!important;padding:9px 12px!important;grid-template-columns:38px 1fr 26px!important}.config-group>summary>span{width:36px!important;height:36px!important;font-size:19px!important}.config-group>summary b{font-size:12.5px!important}.config-group>summary small{font-size:8.5px!important}.config-group .settings-hub-card{min-height:43px!important}}
