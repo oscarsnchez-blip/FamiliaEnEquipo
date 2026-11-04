@@ -844,3 +844,13 @@ body.modal-open .app{overscroll-behavior:none!important}
 #feModal.fe-event-modal .fe-frequency-menu{top:36px!important;padding:3px!important;border-radius:8px!important}
 #feModal.fe-event-modal .fe-frequency-menu button{min-height:27px!important;padding:4px 6px!important;border-radius:6px!important;font-size:8px!important}
 @media(max-width:430px){#feModal.fe-event-modal .fe-event-recurrence{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important;padding:7px!important}#feModal.fe-event-modal .fe-event-recurrence label{min-width:0!important}}
+
+
+/* v1.2.96: popup diario y acciones del editor más compactos */
+#feModal .calendar-day-popup{display:grid!important;gap:8px!important;width:100%!important}
+#feModal .calendar-day-popup.is-empty .empty-state{min-height:0!important;height:auto!important;margin:0!important;padding:12px 10px!important;border-radius:10px!important;font-size:9px!important;line-height:1.2!important}
+#feModal .calendar-day-popup .modal-actions{min-height:0!important;margin:0!important;padding:8px 0 0!important;gap:7px!important}
+#feModal .calendar-day-popup .round-action{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;padding:0!important;font-size:16px!important}
+#feModal.fe-event-modal .fe-event-actions{justify-content:end!important;grid-template-columns:92px 92px!important;gap:7px!important;padding-top:8px!important}
+#feModal.fe-event-modal .fe-event-actions button{width:92px!important;height:32px!important;min-height:32px!important;padding:4px 8px!important;border-radius:9px!important;font-size:8px!important}
+@media(max-width:430px){#feModal.fe-event-modal .fe-event-actions{grid-template-columns:84px 84px!important}#feModal.fe-event-modal .fe-event-actions button{width:84px!important}}
