@@ -921,3 +921,16 @@ body.modal-open .app{overscroll-behavior:none!important}
   .config-group .settings-hub-card small{font-size:8.5px!important;line-height:1.2!important}
   .config-group .settings-hub-card>i{font-size:13px!important}
 }
+/* v1.3.3: Configuracion movil enmarcada y sin separaciones excesivas */
+@media(max-width:430px){
+  .config-accordion{gap:5px!important}
+  .config-group{margin:0!important;border:1px solid rgba(17,75,104,.18)!important;border-radius:14px!important;background:#fff!important;box-shadow:0 2px 8px rgba(24,63,82,.06)!important}
+  .config-group>summary{min-height:66px!important;padding:7px 11px!important;background:linear-gradient(90deg,rgba(8,127,160,.055),rgba(255,255,255,.98))!important}
+  .config-group[open]>summary{border-bottom:1px solid rgba(17,75,104,.12)!important;background:linear-gradient(90deg,rgba(8,127,160,.085),rgba(255,255,255,.98))!important}
+  .config-group>summary b{font-size:14px!important}
+  .config-group>summary small{font-size:9.5px!important}
+  .config-group>.settings-hub{gap:5px!important;padding:6px!important;background:#f7fafb!important}
+  .config-group .settings-hub-card{min-height:52px!important;border:1px solid rgba(17,75,104,.14)!important;background:#fff!important;box-shadow:0 1px 4px rgba(24,63,82,.04)!important}
+  .config-group .settings-hub-card b{font-size:11.5px!important}
+  .config-group .settings-hub-card small{font-size:8.5px!important}
+}
