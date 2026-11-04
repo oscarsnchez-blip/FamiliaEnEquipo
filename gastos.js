@@ -2,7 +2,7 @@
 let members=[],loaded=false,selected=new Set(),expensesVisible=localStorage.getItem('fee-expenses-visible')!=='0',filters={from:'',to:'',child:'',payer:'',status:''},viewMonth=new Date(new Date().getFullYear(),new Date().getMonth(),1);
 const iso=d=>d.toLocaleDateString('en-CA');
 function initRange(){if(filters.from)return;let d=new Date();filters.from=iso(new Date(d.getFullYear(),d.getMonth(),1));filters.to=iso(new Date(d.getFullYear(),d.getMonth()+1,0))}
-async function load(){if(loaded)return;initRange();let fm=await FE.db.from('family_members').select('user_id').eq('family_id',FE.profile.family_id),ids=(fm.data||[]).map(x=>x.user_id),pr=ids.length?await FE.db.from('profiles').select('id,display_name').in('id',ids):{data:[]};members=pr.data||[];loaded=true;FE.render()}
+async function load(){if(loaded)return;initRange();let r=await FE.db.rpc('get_my_family_member_names');if(r.error){members=[{user_id:FE.session.user.id,display_name:FE.profile?.display_name||'Tú'}];await FE.notice('Nombres no disponibles',r.error.message)}else members=(r.data||[]).map(x=>({id:x.user_id,display_name:x.display_name}));loaded=true;FE.render()}
 const who=id=>id===FE.session.user.id?'Tú':members.find(x=>x.id===id)?.display_name||'Miembro';
 const inRange=x=>(!filters.from||x.expense_date>=filters.from)&&(!filters.to||x.expense_date<=filters.to);
 const base=()=>FE.data.expenses.filter(x=>inRange(x)&&(!filters.child||x.child_id===filters.child)&&(!filters.status||x.status===filters.status));
