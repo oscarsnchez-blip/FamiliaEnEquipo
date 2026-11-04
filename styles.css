@@ -905,3 +905,19 @@ body.modal-open .app{overscroll-behavior:none!important}
 .config-group .settings-hub-card small{font-size:7.5px!important;line-height:1.15!important}
 .config-group .settings-hub-card>i{font-size:12px!important}
 @media(max-width:430px){.config-group>summary{min-height:64px!important;padding:9px 12px!important;grid-template-columns:38px 1fr 26px!important}.config-group>summary>span{width:36px!important;height:36px!important;font-size:19px!important}.config-group>summary b{font-size:12.5px!important}.config-group>summary small{font-size:8.5px!important}.config-group .settings-hub-card{min-height:43px!important}}
+/* v1.3.2: Configuracion movil mas legible y compacta */
+@media(max-width:430px){
+  .config-accordion{gap:3px!important}
+  .config-group{border-radius:13px!important}
+  .config-group>summary{min-height:70px!important;padding:8px 11px!important;grid-template-columns:42px 1fr 25px!important;gap:10px!important}
+  .config-group>summary>span{width:40px!important;height:40px!important;font-size:21px!important;border-radius:11px!important}
+  .config-group>summary b{font-size:14px!important;line-height:1.15!important}
+  .config-group>summary small{font-size:9.5px!important;line-height:1.2!important}
+  .config-group>summary>i{font-size:15px!important}
+  .config-group>.settings-hub{gap:5px!important;padding:0 7px 7px!important}
+  .config-group .settings-hub-card{min-height:52px!important;padding:7px 9px!important;border-radius:11px!important}
+  .config-group .settings-hub-card>span{width:34px!important;height:34px!important;min-width:34px!important;font-size:17px!important;border-radius:10px!important}
+  .config-group .settings-hub-card b{font-size:11.5px!important;line-height:1.15!important}
+  .config-group .settings-hub-card small{font-size:8.5px!important;line-height:1.2!important}
+  .config-group .settings-hub-card>i{font-size:13px!important}
+}
