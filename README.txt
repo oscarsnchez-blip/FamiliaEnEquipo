@@ -21,3 +21,4 @@ Archivos que deben eliminarse del repositorio:
 - version-v108.js
 
 No eliminar configuracion.js ni la tabla children.
+Deployment retry 2026-11-04
