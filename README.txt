@@ -23,3 +23,4 @@ Archivos que deben eliminarse del repositorio:
 No eliminar configuracion.js ni la tabla children.
 Deployment retry 2026-11-04
 Deployment retry 2026-11-04
+Deployment retry 2026-11-04
