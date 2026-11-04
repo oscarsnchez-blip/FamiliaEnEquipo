@@ -854,12 +854,15 @@ body.modal-open .app{overscroll-behavior:none!important}
 #feModal.fe-event-modal .fe-event-actions{justify-content:end!important;grid-template-columns:92px 92px!important;gap:7px!important;padding-top:8px!important}
 #feModal.fe-event-modal .fe-event-actions button{width:92px!important;height:32px!important;min-height:32px!important;padding:4px 8px!important;border-radius:9px!important;font-size:8px!important}
 @media(max-width:430px){#feModal.fe-event-modal .fe-event-actions{grid-template-columns:84px 84px!important}#feModal.fe-event-modal .fe-event-actions button{width:84px!important}}
-/* v1.2.97: avisos y Eventos del mes mas compactos, solo estilos */
-#feModal.fe-event-modal .fe-reminder-options label span{font-size:7.5px!important;line-height:1.1!important}
-#feModal.fe-event-modal .fe-reminder-options [data-clear-reminders]{font-size:8px!important}
-.day-panel .entity-card{min-height:44px!important;height:44px!important;gap:7px!important;margin-top:5px!important;padding:5px 7px!important;border-radius:11px!important}
-.day-panel .entity-card .avatar{width:31px!important;height:31px!important;font-size:14px!important}
-.day-panel .entity-card .entity-main b{font-size:11px!important;line-height:1.15!important}
-.day-panel .entity-card .entity-main small{font-size:8px!important;line-height:1.15!important}
-.day-panel .entity-card .icon-delete{width:27px!important;height:27px!important;min-width:27px!important}
-@media(max-width:430px){.day-panel .entity-card{min-height:42px!important;height:42px!important;padding:5px 6px!important}.day-panel .entity-card .avatar{width:29px!important;height:29px!important}.day-panel .entity-card .entity-main b{font-size:10px!important}}
+/* v1.2.98: avisos compactos y visualmente integrados */
+#feModal.fe-event-modal .fe-event-reminders[open]{border-color:rgba(8,127,160,.22)!important;background:#f7fbfc!important}
+#feModal.fe-event-modal .fe-event-reminders summary{min-height:38px!important;padding:8px 11px!important}
+#feModal.fe-event-modal .fe-event-reminders summary>span{font-size:10px!important;font-weight:850!important}
+#feModal.fe-event-modal .fe-event-reminders summary small{max-width:68%!important;padding:4px 8px!important;border-radius:999px!important;background:#e8f3f6!important;color:#496773!important;font-size:8px!important;line-height:1.2!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+#feModal.fe-event-modal .fe-reminder-options{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px 10px!important;padding:10px 11px 11px!important;background:transparent!important}
+#feModal.fe-event-modal .fe-reminder-options label{display:flex!important;align-items:center!important;gap:6px!important;min-height:27px!important;margin:0!important;padding:4px 6px!important;border:1px solid transparent!important;border-radius:8px!important;background:#fff!important;color:#314952!important}
+#feModal.fe-event-modal .fe-reminder-options label:has(input:checked){border-color:rgba(8,127,160,.28)!important;background:#eef8fa!important}
+#feModal.fe-event-modal .fe-reminder-options input{width:14px!important;height:14px!important;min-width:14px!important;margin:0!important;accent-color:var(--p)!important}
+#feModal.fe-event-modal .fe-reminder-options label span{font-size:8px!important;line-height:1.15!important;font-weight:700!important}
+#feModal.fe-event-modal .fe-reminder-options [data-clear-reminders]{grid-column:1/-1!important;width:auto!important;min-height:29px!important;margin:2px 0 0!important;padding:5px 10px!important;border-radius:8px!important;font-size:8px!important}
+@media(max-width:430px){#feModal.fe-event-modal .fe-reminder-options{gap:5px 7px!important;padding:9px!important}#feModal.fe-event-modal .fe-reminder-options label{padding:4px 5px!important}#feModal.fe-event-modal .fe-event-reminders summary small{max-width:64%!important}}
