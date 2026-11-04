@@ -866,3 +866,13 @@ body.modal-open .app{overscroll-behavior:none!important}
 #feModal.fe-event-modal .fe-reminder-options label span{font-size:8px!important;line-height:1.15!important;font-weight:700!important}
 #feModal.fe-event-modal .fe-reminder-options [data-clear-reminders]{grid-column:1/-1!important;width:auto!important;min-height:29px!important;margin:2px 0 0!important;padding:5px 10px!important;border-radius:8px!important;font-size:8px!important}
 @media(max-width:430px){#feModal.fe-event-modal .fe-reminder-options{gap:5px 7px!important;padding:9px!important}#feModal.fe-event-modal .fe-reminder-options label{padding:4px 5px!important}#feModal.fe-event-modal .fe-event-reminders summary small{max-width:64%!important}}
+/* v1.2.100: Eventos del mes mas compactos y fecha mas legible */
+.day-panel>.category-hint{margin:9px 2px 4px!important;padding:0 2px!important}
+.day-panel>.category-hint b{font-size:12px!important;line-height:1.2!important;font-weight:900!important;color:var(--text)!important}
+.day-panel>.entity-card{min-height:40px!important;height:40px!important;margin-top:4px!important;padding:4px 6px!important;gap:6px!important;border-radius:10px!important}
+.day-panel>.entity-card .avatar{width:28px!important;height:28px!important;min-width:28px!important;font-size:13px!important}
+.day-panel>.entity-card .entity-main{min-width:0!important;gap:1px!important}
+.day-panel>.entity-card .entity-main b{font-size:10px!important;line-height:1.1!important}
+.day-panel>.entity-card .entity-main small{font-size:7.5px!important;line-height:1.1!important}
+.day-panel>.entity-card .icon-delete{width:25px!important;height:25px!important;min-width:25px!important;min-height:25px!important}
+@media(max-width:430px){.day-panel>.category-hint b{font-size:12.5px!important}.day-panel>.entity-card{min-height:39px!important;height:39px!important;padding:4px 5px!important}.day-panel>.entity-card .avatar{width:27px!important;height:27px!important;min-width:27px!important}.day-panel>.entity-card .entity-main b{font-size:9.5px!important}.day-panel>.entity-card .entity-main small{font-size:7px!important}}
