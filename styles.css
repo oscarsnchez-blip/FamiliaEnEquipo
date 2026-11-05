@@ -934,3 +934,6 @@ body.modal-open .app{overscroll-behavior:none!important}
   .config-group .settings-hub-card b{font-size:11.5px!important}
   .config-group .settings-hub-card small{font-size:8.5px!important}
 }
+
+/* v1.3.4: Inicio, eventos vigentes y selector directo de horario */
+.home-schedule-toolbar{justify-content:flex-start!important;overflow-x:auto!important;scrollbar-width:none!important}.home-schedule-toolbar::-webkit-scrollbar{display:none!important}.home-schedule-children{display:flex!important;align-items:center!important;gap:6px!important;min-width:max-content!important}.home-schedule-children button{min-height:30px!important;padding:5px 11px!important;border:1px solid var(--l)!important;border-radius:999px!important;background:var(--s2)!important;color:var(--m)!important;font-size:9px!important;font-weight:850!important;white-space:nowrap!important}.home-schedule-children button.active{border-color:var(--p)!important;background:var(--p)!important;color:#fff!important;box-shadow:0 3px 9px color-mix(in srgb,var(--p) 22%,transparent)!important}.home-event-row span small{white-space:normal!important;line-height:1.25!important}@media(max-width:430px){.home-schedule-toolbar{padding-left:8px!important;padding-right:8px!important}.home-schedule-children button{min-height:29px!important;padding:5px 10px!important;font-size:8.5px!important}}
