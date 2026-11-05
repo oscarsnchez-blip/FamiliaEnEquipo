@@ -1,16 +1,5 @@
-# FamiliaEnEquipo - web interactiva de presentación
+# FamiliaEnEquipo · Web interactiva v2
 
-## Probar localmente
-Abre `index.html` en Chrome, Edge, Safari o Firefox.
+Formato de portada compacta con tarjetas que abren ventanas emergentes. Cada módulo incluye pestañas, descripción y capturas relacionadas.
 
-## Publicar
-El contenido es estático. Puedes subir la carpeta completa a Cloudflare Pages, GitHub Pages, Netlify o cualquier alojamiento web.
-
-## Archivos
-- `index.html`: estructura y contenido.
-- `styles.css`: diseño responsive.
-- `app.js`: interacción, módulos, ampliación de imágenes y pestañas.
-- `images/`: capturas y logotipo.
-
-## Personalización pendiente
-Sustituye el enlace del futuro botón "Probar FamiliaEnEquipo" por la URL pública de la aplicación cuando corresponda.
+Para probarla, abre `index.html` en Chrome, Edge, Firefox o Safari.
