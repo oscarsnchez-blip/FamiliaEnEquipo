@@ -978,3 +978,79 @@ body:has(.notes-head-actions) .page-head .add-button{display:none!important}.not
 #feModal label.switch-row.children-menu-global i{width:36px!important;height:21px!important;min-width:36px!important}
 #feModal label.switch-row.children-menu-global i:after{width:15px!important;height:15px!important;top:3px!important;left:3px!important}
 #feModal label.switch-row.children-menu-global input:checked+i:after{transform:translateX(15px)!important}
+/* v1.3.22: modo noche de Configuracion e Inicio */
+html[data-theme=noche] .config-group{
+  border-color:#30455b!important;
+  background:#192536!important;
+  box-shadow:0 4px 14px rgba(0,0,0,.18)!important;
+}
+html[data-theme=noche] .config-group>summary{
+  background:linear-gradient(90deg,rgba(80,190,201,.11),#192536 72%)!important;
+  color:#eef7fa!important;
+}
+html[data-theme=noche] .config-group[open]>summary{
+  border-bottom-color:#30455b!important;
+  background:linear-gradient(90deg,rgba(80,190,201,.17),#192536 76%)!important;
+}
+html[data-theme=noche] .config-group>summary>span{
+  background:#223248!important;
+}
+html[data-theme=noche] .config-group>summary b,
+html[data-theme=noche] .config-group>summary small,
+html[data-theme=noche] .config-group>summary>i{
+  color:inherit!important;
+}
+html[data-theme=noche] .config-group>summary small{color:#a6b6c5!important}
+html[data-theme=noche] .config-group>.settings-hub{
+  background:#14202e!important;
+}
+html[data-theme=noche] .config-group .settings-hub-card{
+  border-color:#30455b!important;
+  background:#192536!important;
+  color:#eef7fa!important;
+  box-shadow:0 2px 7px rgba(0,0,0,.13)!important;
+}
+html[data-theme=noche] .config-group .settings-hub-card>span{
+  background:#223248!important;
+}
+html[data-theme=noche] .config-group .settings-hub-card small,
+html[data-theme=noche] .config-group .settings-hub-card>i{
+  color:#a6b6c5!important;
+}
+html[data-theme=noche] .config-profile-summary,
+html[data-theme=noche] .config-profile-photo,
+html[data-theme=noche] .user-section,
+html[data-theme=noche] .user-setting-row,
+html[data-theme=noche] .admin-member-row,
+html[data-theme=noche] .admin-info-row{
+  border-color:#30455b!important;
+  background:#192536!important;
+  color:#eef7fa!important;
+}
+html[data-theme=noche] .user-setting-row .setting-symbol,
+html[data-theme=noche] .admin-info-row>span{
+  background:#223248!important;
+}
+html[data-theme=noche] .home-tile{
+  position:relative!important;
+  overflow:hidden!important;
+  border:1px solid #30455b!important;
+  background:#192536!important;
+  color:#eef7fa!important;
+  box-shadow:0 5px 16px rgba(0,0,0,.18)!important;
+}
+html[data-theme=noche] .home-tile:before{
+  content:'';
+  position:absolute;
+  inset:0 0 auto;
+  height:3px;
+  background:var(--tile-accent,#50bec9);
+}
+html[data-theme=noche] .home-tile.calendar{--tile-accent:#ef8399;background:linear-gradient(150deg,rgba(239,131,153,.12),#192536 58%)!important}
+html[data-theme=noche] .home-tile.expenses{--tile-accent:#63c7a6;background:linear-gradient(150deg,rgba(99,199,166,.12),#192536 58%)!important}
+html[data-theme=noche] .home-tile.notes{--tile-accent:#e5ae69;background:linear-gradient(150deg,rgba(229,174,105,.12),#192536 58%)!important}
+html[data-theme=noche] .home-tile.shopping{--tile-accent:#8fa7d8;background:linear-gradient(150deg,rgba(143,167,216,.12),#192536 58%)!important}
+html[data-theme=noche] .home-tile span{margin-top:2px!important}
+html[data-theme=noche] .home-tile b{color:#eef7fa!important}
+html[data-theme=noche] .home-tile small{color:#a6b6c5!important}
+
