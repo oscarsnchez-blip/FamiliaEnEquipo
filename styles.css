@@ -969,3 +969,12 @@ body:has(.notes-head-actions) .page-head .add-button{display:none!important}.not
   #feModal.fe-event-modal .fe-event-all-day{width:108px!important;min-width:108px!important;max-width:108px!important;padding-left:7px!important}
   #feModal.fe-event-modal .fe-event-date input[type="date"]{padding-left:5px!important;padding-right:4px!important}
 }
+
+/* v1.3.20: selector global de hijos realmente compacto */
+#feModal label.switch-row.children-menu-global{min-height:38px!important;padding:5px 8px!important;border-radius:10px!important;gap:8px!important}
+#feModal label.switch-row.children-menu-global span{gap:1px!important}
+#feModal label.switch-row.children-menu-global span b{font-size:9px!important;line-height:1.05!important}
+#feModal label.switch-row.children-menu-global span small{font-size:7px!important;line-height:1.05!important}
+#feModal label.switch-row.children-menu-global i{width:34px!important;height:20px!important;min-width:34px!important}
+#feModal label.switch-row.children-menu-global i:after{width:14px!important;height:14px!important;top:3px!important;left:3px!important}
+#feModal label.switch-row.children-menu-global input:checked+i:after{transform:translateX(14px)!important}
