@@ -934,3 +934,5 @@ body.modal-open .app{overscroll-behavior:none!important}
   .config-group .settings-hub-card b{font-size:11.5px!important}
   .config-group .settings-hub-card small{font-size:8.5px!important}
 }
+
+.home-schedule-children{display:flex;gap:6px;overflow:auto}.home-schedule-children button{padding:5px 11px;border:1px solid var(--l);border-radius:999px;background:var(--s2);font-size:9px;font-weight:850}.home-schedule-children button.active{background:var(--p);color:#fff}.note-folders{display:grid;gap:9px}.note-folder{border:1px solid var(--l);border-radius:15px;overflow:hidden}.note-folder>header{display:flex;justify-content:space-between;padding:9px;background:var(--s2)}.note-folder .entity-list{padding:7px}
