@@ -1,5 +1,5 @@
-# FamiliaEnEquipo · Web interactiva v2
+# FamiliaEnEquipo · Web interactiva v2.1
 
-Formato de portada compacta con tarjetas que abren ventanas emergentes. Cada módulo incluye pestañas, descripción y capturas relacionadas.
+Abre `index.html` para probarla. La página usa ventanas emergentes por función y las capturas están reasignadas para coincidir con cada explicación.
 
-Para probarla, abre `index.html` en Chrome, Edge, Firefox o Safari.
+El botón final apunta provisionalmente a `https://familiaenequipo.com`. Sustituye esa URL si la aplicación pública utiliza otra.
