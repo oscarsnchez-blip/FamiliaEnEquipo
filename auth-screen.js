@@ -9,7 +9,7 @@
   const landscape=()=>'<div class="auth-landscape" aria-hidden="true"><i class="tree t1"></i><i class="tree t2"></i><i class="tree t3"></i><i class="house"><b></b></i><i class="hill h1"></i><i class="hill h2"></i></div>';
   const googleButton=()=>`<div class="auth-divider"><span>o</span></div><button class="auth-google" type="button" data-google-auth><span>G</span>Continuar con Google</button>`;
   const captchaBox=()=>`<div class="auth-captcha" data-captcha><div data-turnstile></div><small data-captcha-status>Comprobación de seguridad</small></div>`;
-  const shell=body=>`<div class="auth-page"><section class="auth-phone"><div class="auth-brand"><img src="icon-512.png" alt=""><h1>Familia<span>EnEquipo</span></h1><p>Diferentes hogares,<br>la misma familia</p></div>${body}${landscape()}</section></div>`;
+  const shell=body=>`<div class="auth-page"><section class="auth-phone"><div class="auth-brand"><img src="icon-512.png" alt=""><h1>Familia<span>EnEquipo</span></h1><p>Organiza el día a día de tu familia,<br>sea cual sea su forma de convivir.</p></div>${body}${landscape()}</section></div>`;
   function welcome(){return shell(`<div class="auth-actions"><button class="auth-primary" data-auth-mode="login">Iniciar sesión</button><button class="auth-secondary" data-auth-mode="signup">Crear cuenta</button>${googleButton()}<button class="auth-link" data-auth-mode="recover">¿Has olvidado tu contraseña?</button></div>`)}
   function form(kind){
     const signup=kind==='signup', recover=kind==='recover';
