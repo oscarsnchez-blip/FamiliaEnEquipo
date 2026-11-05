@@ -79,3 +79,13 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}body>header,main,footer{wi
 .panelBody>nav{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;width:100%!important;max-width:100%!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior-x:contain!important;touch-action:pan-x!important;scroll-snap-type:x proximity!important;scrollbar-width:none!important}
 .panelBody>nav::-webkit-scrollbar{display:none!important}
 .panelBody>nav button{flex:0 0 auto!important;scroll-snap-align:start!important}
+/* v3.0: carrusel estable de pasos, pestaña activa sincronizada y final de alta */
+.panelBody>nav{min-height:62px!important;align-items:center!important;scroll-behavior:smooth!important}
+.panelBody>nav button{box-sizing:border-box!important;min-width:132px!important;max-width:132px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+.panelBody>nav button.active{min-width:132px!important;max-width:132px!important}
+.panelBody .content{min-width:0!important}
+.panelBody .copy{min-height:520px!important}
+.panelBody figure{min-height:520px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important}
+.panelBody figure img{width:100%!important;height:430px!important;object-fit:contain!important}
+@media(max-width:820px){.panelBody .copy{min-height:440px!important}.panelBody figure{min-height:440px!important}.panelBody figure img{height:350px!important}}
+@media(max-width:600px){.panelBody>nav{min-height:58px!important}.panelBody>nav button,.panelBody>nav button.active{min-width:124px!important;max-width:124px!important}.panelBody .copy{min-height:420px!important}.panelBody figure{min-height:410px!important}.panelBody figure img{height:330px!important}}
