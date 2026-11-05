@@ -1,5 +1,5 @@
-# FamiliaEnEquipo · Web interactiva v2.1
+# FamiliaEnEquipo · Web interactiva v2.2
 
-Abre `index.html` para probarla. La página usa ventanas emergentes por función y las capturas están reasignadas para coincidir con cada explicación.
-
-El botón final apunta provisionalmente a `https://familiaenequipo.com`. Sustituye esa URL si la aplicación pública utiliza otra.
+- Pestañas superiores: cambian entre las pantallas internas de la función actual.
+- Botones inferiores: recorren las distintas funciones completas.
+- La URL del botón final es provisional: `https://familiaenequipo.com`.
