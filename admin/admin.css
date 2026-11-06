@@ -76,3 +76,9 @@
 
 /* Consola global v18 - confirmaciones integradas */
 .admin-confirm-modal{width:min(410px,100%)}.admin-confirm-text{margin:0 0 14px;padding:11px;border:1px solid var(--line);border-radius:12px;background:var(--soft);color:var(--muted);font-size:10px;line-height:1.5}
+
+/* Consola global v19 - dependencias familiares y motivos predeterminados */
+.family-delete-action{white-space:nowrap}.family-row[open] .family-delete-action{align-self:center}.manual-deletion-form textarea{border-color:color-mix(in srgb,var(--primary) 35%,var(--line))}
+
+/* Consola global v20 - estado de eliminacion en perfiles */
+.profile-name-status{display:flex;align-items:center;gap:6px;min-width:0}.profile-name-status>b{min-width:0;overflow:hidden;text-overflow:ellipsis}.pending-deletion-badge{display:inline-flex;align-items:center;flex:0 0 auto;padding:3px 6px;border:1px solid #e7b7a3;border-radius:999px;background:#fff1eb;color:#973f23;font-size:8px;font-weight:850;white-space:nowrap}.pending-date{color:#973f23;font-size:8px;font-weight:800;white-space:nowrap}@media(max-width:620px){.profile-name-status{align-items:flex-start;flex-direction:column;gap:3px}.pending-deletion-badge{font-size:7px}}
