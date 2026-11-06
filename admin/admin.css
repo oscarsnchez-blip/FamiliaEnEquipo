@@ -94,3 +94,6 @@
 
 /* Consola global v24 - navegacion y diagnosticos accionables */
 .section-tabs{grid-template-columns:repeat(5,minmax(0,1fr))}.summary>div:first-child{position:relative}.summary-review-link{margin-top:5px;padding:0;border:0;background:transparent;color:var(--primary);font-size:8px;font-weight:850;text-decoration:underline;cursor:pointer}.technical-problem.simple{display:grid;gap:4px;margin-top:7px;padding:10px;border:1px solid #efc5cf;border-radius:12px;background:var(--danger-bg)}.technical-problem.simple b{color:var(--danger);font-size:10px}.technical-problem.simple span{color:var(--muted);font-size:9px;line-height:1.4}.result-message span{display:block;margin-top:4px}@media(max-width:760px){.section-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}.header-actions{display:grid;grid-template-columns:repeat(3,auto)}}@media(max-width:480px){.section-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.header-actions{grid-template-columns:1fr 1fr}.header-actions #openAccountSearch{grid-column:1/-1}}
+
+/* Consola global v26 - ejecucion programada */
+.deletion-stage.blocked{background:#fff1eb;color:#973f23}.deletion-stage.executed{background:#e6f7ef;color:#176b49}.deletion-error-detail{display:block!important;margin-top:4px;color:#973f23!important;font-weight:750}
