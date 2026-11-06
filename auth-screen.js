@@ -2,6 +2,7 @@
 (()=>{
   let mode='welcome', recoverySession=false, pendingEmail='', resendAvailableAt=0, resendTimer=null, turnstileWidget=null, captchaToken='';
   const PASSWORD_HELP='Mínimo 10 caracteres, con mayúscula, minúscula y número.';
+  const AUTH_CONFIRM_REDIRECT='https://oscarsnchez-blip.github.io/FamiliaEnEquipo/';
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const message=(text,type='ok')=>{const el=document.querySelector('[data-auth-message]');if(el){el.textContent=text;el.className='auth-message '+type}};
   const friendlyError=err=>{const m=String(err?.message||'');if(/captcha|turnstile/i.test(m))return 'No se ha podido completar la verificación de seguridad. Inténtalo de nuevo.';if(/invalid login credentials/i.test(m))return 'El correo o la contraseña no son correctos.';if(/email not confirmed/i.test(m))return 'Todavía tienes que confirmar tu correo. Revisa el mensaje de FamiliaEnEquipo o vuelve a enviarlo desde Crear cuenta.';if(/user already registered|already been registered/i.test(m))return 'Ya existe una cuenta con este correo.';if(/password should be|password.*characters|weak password/i.test(m))return 'La contraseña no cumple los requisitos: '+PASSWORD_HELP;if(/email.*invalid/i.test(m))return 'Introduce un correo válido.';if(/rate limit|too many requests/i.test(m))return 'Demasiados intentos. Espera unos minutos y vuelve a probar.';return m||'No se ha podido completar la operación.'};
@@ -26,7 +27,7 @@
   function bind(a){
     a.querySelectorAll('[data-google-auth]').forEach(b=>b.onclick=async()=>{b.disabled=true;try{let redirectTo=location.origin+location.pathname,{error}=await FE.db.auth.signInWithOAuth({provider:'google',options:{redirectTo}});if(error)throw error}catch(err){message(friendlyError(err),'error');b.disabled=false}});
     a.querySelectorAll('[data-auth-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.authMode;renderAuth(a)});
-    const resend=a.querySelector('[data-resend-confirmation]');if(resend)resend.onclick=async()=>{if(Date.now()<resendAvailableAt)return updateResendButton(a);if(!captchaToken){message('Completa la comprobación de seguridad.','error');return}resend.disabled=true;try{const {error}=await FE.db.auth.resend({type:'signup',email:pendingEmail,options:{captchaToken}});if(error)throw error;resendAvailableAt=Date.now()+60000;message('Correo reenviado. Revisa también Spam y Promociones.');resetCaptcha();mountCaptcha(a);updateResendButton(a)}catch(err){message(friendlyError(err),'error');resetCaptcha();mountCaptcha(a);updateResendButton(a)}};
+    const resend=a.querySelector('[data-resend-confirmation]');if(resend)resend.onclick=async()=>{if(Date.now()<resendAvailableAt)return updateResendButton(a);if(!captchaToken){message('Completa la comprobación de seguridad.','error');return}resend.disabled=true;try{const {error}=await FE.db.auth.resend({type:'signup',email:pendingEmail,options:{captchaToken,emailRedirectTo:AUTH_CONFIRM_REDIRECT}});if(error)throw error;resendAvailableAt=Date.now()+60000;message('Correo reenviado. Revisa también Spam y Promociones.');resetCaptcha();mountCaptcha(a);updateResendButton(a)}catch(err){message(friendlyError(err),'error');resetCaptcha();mountCaptcha(a);updateResendButton(a)}};
     const f=a.querySelector('[data-auth-form]');if(!f)return;
     f.onsubmit=async e=>{
       e.preventDefault();const btn=f.querySelector('button.auth-primary');if(btn.disabled)return;const kind=f.dataset.authForm;if(kind!=='update'&&!captchaToken){message('Completa la comprobación de seguridad.','error');return}btn.disabled=true;const data=new FormData(f),email=String(data.get('email')||'').trim();const guard=FE.rateGuard('auth-'+kind,{limit:6,windowMs:60000,cooldownMs:1200});if(!guard.ok){btn.disabled=false;message('Demasiados intentos. Espera '+Math.max(1,Math.ceil(guard.wait/1000))+' segundos.','error');return;}
@@ -41,7 +42,7 @@
           recoverySession=false;localStorage.removeItem('fe-password-recovery');history.replaceState(null,'',location.pathname);message('Contraseña actualizada. Ya puedes continuar.');setTimeout(()=>FEApp.render(),800);
         }else if(kind==='signup'){
           const password=String(data.get('password')||'');if(!validPassword(password))throw new Error('La contraseña no cumple los requisitos: '+PASSWORD_HELP);
-          const r=await FE.db.auth.signUp({email,password,options:{captchaToken}});if(r.error)throw r.error;
+          const r=await FE.db.auth.signUp({email,password,options:{captchaToken,emailRedirectTo:AUTH_CONFIRM_REDIRECT}});if(r.error)throw r.error;
           if(r.data?.session){FE.session=r.data.session;await FEApp.load();FEApp.render();setTimeout(()=>FE.notice?.('Usuario creado correctamente','La cuenta está lista y ya has iniciado sesión.'),150)}
           else{pendingEmail=email;resendAvailableAt=Date.now()+60000;mode='confirm';renderAuth(a)}
         }else{
