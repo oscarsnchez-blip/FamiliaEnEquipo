@@ -82,3 +82,6 @@
 
 /* Consola global v20 - estado de eliminacion en perfiles */
 .profile-name-status{display:flex;align-items:center;gap:6px;min-width:0}.profile-name-status>b{min-width:0;overflow:hidden;text-overflow:ellipsis}.pending-deletion-badge{display:inline-flex;align-items:center;flex:0 0 auto;padding:3px 6px;border:1px solid #e7b7a3;border-radius:999px;background:#fff1eb;color:#973f23;font-size:8px;font-weight:850;white-space:nowrap}.pending-date{color:#973f23;font-size:8px;font-weight:800;white-space:nowrap}@media(max-width:620px){.profile-name-status{align-items:flex-start;flex-direction:column;gap:3px}.pending-deletion-badge{font-size:7px}}
+
+/* Consola global v21 - accion visible de familias */
+.family-delete-action{flex:0 0 auto;white-space:nowrap;padding:6px 9px!important;font-size:8px!important}.family-status .pending-deletion-badge{margin-left:2px}@media(max-width:620px){.family-delete-action{width:auto!important}}
