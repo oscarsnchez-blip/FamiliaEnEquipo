@@ -106,3 +106,9 @@
 .cleanup-rate-limit-button{margin-top:10px!important;width:100%!important}
 #cleanupRateLimitsResult{margin-top:8px}
 @media(max-width:620px){.deletion-row-actions{grid-template-columns:1fr!important;max-width:none!important;min-width:0!important}.deletion-row-actions [data-cancel-deletion]{grid-row:1!important}.deletion-row-actions [data-impact]{grid-row:2!important}}
+
+/* Consola global v30 - cabecera centrada e identidad historica de eliminados */
+.admin-header > div:first-child{flex:1;text-align:center;padding-left:170px}
+@media(max-width:760px){.admin-header > div:first-child{padding-left:0;text-align:center;width:100%}.admin-header{position:relative;display:grid;justify-items:center}.header-actions{justify-self:center}}
+.deletion-row.executed-history .deletion-title-line{align-items:center}
+.deletion-row .deleted-id{display:block;margin-top:2px;color:var(--muted);font-size:8px}
