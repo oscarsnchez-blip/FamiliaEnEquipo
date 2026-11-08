@@ -106,3 +106,42 @@
 .cleanup-rate-limit-button{margin-top:10px!important;width:100%!important}
 #cleanupRateLimitsResult{margin-top:8px}
 @media(max-width:620px){.deletion-row-actions{grid-template-columns:1fr!important;max-width:none!important;min-width:0!important}.deletion-row-actions [data-cancel-deletion]{grid-row:1!important}.deletion-row-actions [data-impact]{grid-row:2!important}}
+
+/* v33 mobile-first: la identidad ocupa su propia fila completa */
+@media(max-width:760px){
+  .admin-header{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    gap:12px!important;
+  }
+  .admin-header > div:first-child{
+    position:static!important;
+    display:block!important;
+    transform:none!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0!important;
+    text-align:center!important;
+    align-self:stretch!important;
+  }
+  .admin-header > div:first-child .eyebrow,
+  .admin-header > div:first-child h1,
+  .admin-header > div:first-child small{
+    display:block!important;
+    width:100%!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    text-align:center!important;
+  }
+  .admin-header .header-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    width:100%!important;
+    margin:0!important;
+    align-self:stretch!important;
+  }
+  .admin-header .header-actions #openAccountSearch{grid-column:1/-1!important}
+}
