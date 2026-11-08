@@ -2,7 +2,7 @@
 (()=>{
   let mode='welcome', recoverySession=false, pendingEmail='', resendAvailableAt=0, resendTimer=null, turnstileWidget=null, captchaToken='';
   const PASSWORD_HELP='Mínimo 8 caracteres, con mayúscula, minúscula y número.';
-  const AUTH_CONFIRM_REDIRECT='https://oscarsnchez-blip.github.io/FamiliaEnEquipo/';
+  const AUTH_CONFIRM_REDIRECT=(()=>{let u=new URL('https://oscarsnchez-blip.github.io/FamiliaEnEquipo/');let invite=new URL(location.href).searchParams.get('invite');if(invite)u.searchParams.set('invite',invite);return u.toString()})();
   const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   const message=(text,type='ok')=>{const el=document.querySelector('[data-auth-message]');if(el){el.textContent=text;el.className='auth-message '+type}};
   const friendlyError=err=>{const m=String(err?.message||'');if(/captcha|turnstile/i.test(m))return 'No se ha podido completar la verificación de seguridad. Inténtalo de nuevo.';if(/invalid login credentials/i.test(m))return 'El correo o la contraseña no son correctos.';if(/email not confirmed/i.test(m))return 'Todavía tienes que confirmar tu correo. Revisa el mensaje de FamiliaEnEquipo o vuelve a enviarlo desde Crear cuenta.';if(/user already registered|already been registered/i.test(m))return 'Ya existe una cuenta con este correo.';if(/password should be|password.*characters|weak password/i.test(m))return 'La contraseña no cumple los requisitos: '+PASSWORD_HELP;if(/email.*invalid/i.test(m))return 'Introduce un correo válido.';if(/rate limit|too many requests/i.test(m))return 'Demasiados intentos. Espera unos minutos y vuelve a probar.';return m||'No se ha podido completar la operación.'};
@@ -33,7 +33,7 @@
       e.preventDefault();const btn=f.querySelector('button.auth-primary');if(btn.disabled)return;const kind=f.dataset.authForm;if(kind!=='update'&&!captchaToken){message('Completa la comprobación de seguridad.','error');return}btn.disabled=true;const data=new FormData(f),email=String(data.get('email')||'').trim();const guard=FE.rateGuard('auth-'+kind,{limit:6,windowMs:60000,cooldownMs:1200});if(!guard.ok){btn.disabled=false;message('Demasiados intentos. Espera '+Math.max(1,Math.ceil(guard.wait/1000))+' segundos.','error');return;}
       try{
         if(kind==='recover'){
-          const redirectTo=location.origin+location.pathname;localStorage.setItem('fe-password-recovery','1');
+          const redirectTo=location.origin+location.pathname+location.search;localStorage.setItem('fe-password-recovery','1');
           const {error}=await FE.db.auth.resetPasswordForEmail(email,{redirectTo,captchaToken});if(error){localStorage.removeItem('fe-password-recovery');throw error;}
           message('Solicitud enviada. Si la cuenta existe y el proveedor entrega el mensaje, recibirás un enlace para cambiar la contraseña.');f.reset();resetCaptcha();
         }else if(kind==='update'){
