@@ -97,3 +97,12 @@
 
 /* Consola global v26 - ejecucion programada */
 .deletion-stage.blocked{background:#fff1eb;color:#973f23}.deletion-stage.executed{background:#e6f7ef;color:#176b49}.deletion-error-detail{display:block!important;margin-top:4px;color:#973f23!important;font-weight:750}
+
+/* Consola global v29: acciones verticales y mantenimiento antiabuso */
+.deletion-row-actions{display:grid!important;grid-template-columns:minmax(118px,1fr)!important;gap:7px!important;align-self:start!important;align-items:stretch!important;width:100%!important;max-width:170px!important}
+.deletion-row-actions button{display:block!important;width:100%!important;margin:0!important;position:static!important;transform:none!important;white-space:nowrap!important}
+.deletion-row-actions [data-cancel-deletion]{grid-row:1!important;grid-column:1!important}
+.deletion-row-actions [data-impact]{grid-row:2!important;grid-column:1!important}
+.cleanup-rate-limit-button{margin-top:10px!important;width:100%!important}
+#cleanupRateLimitsResult{margin-top:8px}
+@media(max-width:620px){.deletion-row-actions{grid-template-columns:1fr!important;max-width:none!important;min-width:0!important}.deletion-row-actions [data-cancel-deletion]{grid-row:1!important}.deletion-row-actions [data-impact]{grid-row:2!important}}
