@@ -24,3 +24,10 @@
 
 /* v1.3.50 · selector agrupado por congelador y gestión del histórico */
 .freeze-destination-groups{display:grid;gap:10px}.freeze-destination-group{overflow:hidden;border:1px solid var(--l);border-radius:13px;background:var(--s)}.freeze-destination-group>header{display:flex;align-items:center;gap:7px;padding:8px 9px;border-bottom:1px solid var(--l);background:color-mix(in srgb,var(--p) 7%,var(--s))}.freeze-destination-group>header>span{display:grid;width:29px;height:29px;place-items:center;border-radius:9px;background:var(--s);font-size:14px}.freeze-destination-group>header b{display:block;font-size:10px}.freeze-destination-group>header small{display:block;margin-top:1px;color:var(--m);font-size:7px}.freeze-destination-group>div{display:grid;gap:4px;padding:6px}.freeze-destination-group .freeze-destination{border-radius:9px!important;background:var(--s2)!important}.freeze-history-item{grid-template-columns:18px minmax(0,1fr) auto!important}.freeze-history-actions{display:flex;gap:2px}.freeze-history-actions>button{display:grid;width:20px;height:20px;padding:0;place-items:center;border:0;border-radius:6px;background:rgba(8,127,160,.12);color:var(--p);font-size:12px;font-weight:900}.freeze-history-actions>.freeze-history-delete{background:rgba(190,55,55,.08);color:#a33}.freeze-history-item.in-use .freeze-history-delete{opacity:.45}
+
+
+/* v1.3.52 · tipografía más legible sin aumentar las fichas */
+.freezer-product-name{font-size:8.5px!important;font-weight:900!important;line-height:13px!important}
+.freezer-product-controls button{font-size:12px!important;font-weight:950!important;line-height:1!important}
+.freezer-product-controls strong{font-size:8.5px!important;font-weight:900!important;line-height:20px!important}
+.freezer-product-controls .freezer-product-move{font-size:7px!important;font-weight:900!important;letter-spacing:-.1px!important}
