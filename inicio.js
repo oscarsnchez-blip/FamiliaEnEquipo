@@ -29,7 +29,7 @@
     }
     m=raw.match(/(?:^|\s)(?:a\s+las?|sobre\s+las?)\s*(\d{1,2}|una|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|once|doce)(?::(\d{2}))?(?:\s+y\s+(media|cuarto))?(?:\s+de\s+la\s+(ma[nñ]ana|tarde|noche))?(?=\s|$)/i);
     if(m){let h=nums[fold(m[1])]||Number(m[1]),min=m[2]?Number(m[2]):fold(m[3])==='media'?30:fold(m[3])==='cuarto'?15:0,period=fold(m[4]);if((period==='tarde'||period==='noche'||(!period&&h<8))&&h<12)h+=12;hour=`${String(h).padStart(2,'0')}:${String(min).padStart(2,'0')}`;erase(m)}
-    clean=clean.replace(/^(?:por favor\s+)?(?:(?:quiero|necesito)\s+)?(?:a[nñ]ade|agrega|crear?|apunta|anota|pon|mete|incluye|guarda)\s+/i,'').replace(/^(?:al|en el)\s+calendario\s+/i,'').replace(/^(?:(?:un|una|el|la)\s+)?(?:evento|cita|recordatorio)\s+/i,'').replace(/\s+(?:el|para)\s*$/i,'').trim();
+    clean=clean.replace(/^(?:por favor\s+)?(?:(?:quiero|necesito)\s+)?(?:a[nñ]ade|a[nñ]adir|agrega|agregar|crear?|apunta|apuntar|anota|anotar|pon|poner|mete|meter|incluye|incluir|guarda|guardar)\s+/i,'').replace(/^(?:al|en el)\s+calendario\s+/i,'').replace(/^(?:(?:un|una|el|la)\s+)?(?:evento|cita|recordatorio)\s+/i,'').replace(/\s+(?:el|para)\s*$/i,'').trim();
   }else if(type==='Compra'){
     clean=clean.replace(/^(?:por favor\s+)?/i,'').replace(/^(?:hay\s+que|tengo\s+que|tenemos\s+que|necesito|necesitamos|quiero|queremos)\s+/i,'').replace(/^(?:comprar|compra|a[nñ]ade|agrega|apunta|anota|pon|mete|incluye)\s+/i,'').replace(/^(?:a|en)\s+(?:la\s+)?(?:lista(?:\s+de\s+la\s+compra)?|compra|supermercado)\s+/i,'').replace(/\s+(?:a|para|en)\s+(?:la\s+)?(?:lista(?:\s+de\s+la\s+compra)?|compra|supermercado)\s*$/i,'').trim();
   }else if(type==='Congelador'){
