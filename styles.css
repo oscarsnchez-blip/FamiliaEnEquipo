@@ -1123,3 +1123,9 @@ html[data-theme=noche] .home-tile small{color:#a6b6c5!important}
 
 /* v1.3.70 */
 .schedule-grid-row>time{display:grid!important;align-content:center!important;justify-items:center!important;font-size:9px!important;line-height:1.1!important}
+
+/* v1.3.71: horario +1px y selector de archivo de notas */
+.schedule-cell>b{font-size:9px!important}.schedule-grid-row>time{font-size:10px!important}
+.note-editor-form input[type="file"]{box-sizing:border-box;width:100%;min-height:39px;padding:5px 6px;border:1px solid var(--l);border-radius:10px;background:var(--s2);color:var(--m);font-family:inherit;font-size:9px;font-weight:700}
+.note-editor-form input[type="file"]::file-selector-button{min-height:28px;margin-right:8px;padding:5px 10px;border:0;border-radius:8px;background:var(--p);color:#fff;font-family:inherit;font-size:9px;font-weight:850;box-shadow:0 2px 6px rgba(8,127,160,.16)}
+.note-editor-form input[type="file"]::-webkit-file-upload-button{min-height:28px;margin-right:8px;padding:5px 10px;border:0;border-radius:8px;background:var(--p);color:#fff;font-family:inherit;font-size:9px;font-weight:850;box-shadow:0 2px 6px rgba(8,127,160,.16)}
