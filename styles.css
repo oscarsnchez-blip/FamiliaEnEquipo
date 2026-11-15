@@ -1132,3 +1132,6 @@ html[data-theme=noche] .home-tile small{color:#a6b6c5!important}
 
 /* v1.3.72: supermercados plegables */
 .buy-store>header{gap:7px}.buy-store-toggle{display:flex;align-items:center;gap:7px;min-width:0;flex:1;margin:0;padding:0;border:0;background:transparent;color:inherit;text-align:left}.buy-store-toggle h2{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.buy-store-chevron{display:grid;width:20px;height:20px;min-width:20px;place-items:center;color:var(--p);font-size:15px;font-weight:900;transition:transform .16s ease}.buy-store.collapsed .buy-store-chevron{transform:rotate(-90deg)}.buy-store.collapsed{min-height:0}.buy-store.collapsed>header{margin-bottom:0}.buy-store.collapsed>.buy-products{display:none}
+
+/* v1.3.73: plegado real de supermercados con fichas de productos */
+.buy-store.collapsed{height:auto!important;min-height:0!important;max-height:none!important;padding-bottom:0!important;overflow:hidden!important}.buy-store.collapsed>header{min-height:44px!important;height:44px!important;margin:0!important;border-bottom:0!important}.buy-store.collapsed>.buy-products{display:none!important;height:0!important;min-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important}.buy-store.collapsed .buy-product-card,.buy-store.collapsed .empty-state{display:none!important}
